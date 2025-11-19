@@ -116,10 +116,10 @@ export default function RootLayout() {
         return;
       }
 
-      // Priority 2: If logged in but in auth/onboarding/welcome screens, redirect to main app
+      // Priority 2: If logged in AND has completed onboarding, but in auth/onboarding/welcome screens, redirect to main app
       // BUT: Skip this redirect if we're in testing mode (to allow viewing welcome screen)
-      if (user && (inWelcomeScreen || inOnboardingGroup || inAuthGroup) && !FORCE_ONBOARDING_FOR_TESTING) {
-        console.log('User logged in, redirecting to main app from auth flow');
+      if (user && hasOnboarded && (inWelcomeScreen || inOnboardingGroup || inAuthGroup) && !FORCE_ONBOARDING_FOR_TESTING) {
+        console.log('User logged in with completed onboarding, redirecting to main app from auth flow');
         router.replace('/(tabs)');
         return;
       }

@@ -110,6 +110,7 @@ export default function WelcomeScreen() {
 
   const handleSwitchToLogin = () => {
     setCurrentStep('login');
+    setShowModal(true);
   };
 
   const handleSwitchToSignup = () => {
@@ -335,6 +336,14 @@ export default function WelcomeScreen() {
               >
                 <Text style={styles.getStartedText}>Get Started</Text>
               </TouchableOpacity>
+
+              {/* Sign In Link */}
+              <View style={styles.signInLinkContainer}>
+                <Text style={styles.signInPrompt}>Already have an account? </Text>
+                <TouchableOpacity onPress={handleSwitchToLogin} activeOpacity={0.7}>
+                  <Text style={styles.signInLink}>Sign In</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </ImageBackground>
@@ -1066,6 +1075,22 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#1C1C1C',
     letterSpacing: 0.5,
+  },
+  signInLinkContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 24,
+  },
+  signInPrompt: {
+    fontSize: 15,
+    color: '#FFFFFF',
+    opacity: 0.8,
+  },
+  signInLink: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#9FE870',
+    textDecorationLine: 'underline',
   },
   // Modal styles
   modalOverlay: {

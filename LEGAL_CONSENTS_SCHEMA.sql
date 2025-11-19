@@ -11,7 +11,7 @@
 CREATE TABLE IF NOT EXISTS legal_consents (
   -- Primary key (one record per user)
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  user_id TEXT NOT NULL UNIQUE REFERENCES auth.users(id) ON DELETE CASCADE,
+  user_id UUID NOT NULL UNIQUE REFERENCES auth.users(id) ON DELETE CASCADE,
 
   -- Age Verification (COPPA requirement - 13+ years old)
   age_verified BOOLEAN DEFAULT FALSE,
@@ -54,19 +54,19 @@ ALTER TABLE legal_consents ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Users can view own consents"
   ON legal_consents
   FOR SELECT
-  USING (auth.uid()::text = user_id);
+  USING (auth.uid() = user_id);
 
 -- Policy: Users can insert their own consents (on signup)
 CREATE POLICY "Users can insert own consents"
   ON legal_consents
   FOR INSERT
-  WITH CHECK (auth.uid()::text = user_id);
+  WITH CHECK (auth.uid() = user_id);
 
 -- Policy: Users can update their own consents
 CREATE POLICY "Users can update own consents"
   ON legal_consents
   FOR UPDATE
-  USING (auth.uid()::text = user_id);
+  USING (auth.uid() = user_id);
 
 -- =====================================================
 -- COMMENTS
