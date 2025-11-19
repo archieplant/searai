@@ -1,29 +1,47 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
+ * Recipe Killer AI - Theme Colors
+ * Primary color scheme used throughout the app
  */
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
 export const Colors = {
+  // Primary brand colors
+  primary: '#9FE870',        // Green - main accent color
+  secondary: '#9FE870',      // Green - secondary accent
+  tertiary: '#E07A5F',       // Coral - tertiary accent
+
+  // Background colors
+  background: {
+    primary: '#1C1C1C',      // Main background
+    secondary: '#2C2C2C',    // Card/elevated background
+    tertiary: '#3C3C3C',     // Borders and dividers
+  },
+
+  // Text colors
+  text: {
+    primary: '#FFFFFF',      // Main text
+    secondary: '#AAAAAA',    // Subtext
+    tertiary: '#666666',     // Disabled/placeholder
+    inverse: '#1C1C1C',      // Text on light backgrounds
+  },
+
+  // Legacy theme support (for compatibility)
   light: {
     text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
+    background: '#FAF9F6',
+    tint: '#9FE870',
     icon: '#687076',
     tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    tabIconSelected: '#9FE870',
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    text: '#FFFFFF',
+    background: '#1C1C1C',
+    tint: '#9FE870',
+    icon: '#AAAAAA',
+    tabIconDefault: '#AAAAAA',
+    tabIconSelected: '#9FE870',
   },
 };
 

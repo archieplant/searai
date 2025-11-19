@@ -1,50 +1,90 @@
-# Welcome to your Expo app 👋
+# Recipe Killer AI
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+AI-powered recipe analysis and simplification app built with React Native and Expo.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Recipe Analysis**: Upload photos or paste recipes for AI-powered analysis
+- **Complexity Levels**: Get 3 versions of any recipe (Easy, Average, Pro)
+- **Recipe Library**: Save and organize your favorite recipes
+- **Smart Recommendations**: Weekly rotating recipe suggestions
+- **Premium Features**: Unlimited recipes, saved recipes, and more
+
+## Tech Stack
+
+- **Framework**: React Native + Expo Router
+- **Backend**: Supabase (Auth + Database)
+- **AI**: OpenAI GPT-4 Vision
+- **Subscriptions**: RevenueCat
+- **Storage**: AsyncStorage + Supabase Storage
+
+## Project Structure
+
+```
+/app                    # Screens and routes (Expo Router)
+  /(tabs)              # Tab navigation screens
+  /auth                # Login and signup
+  /onboarding          # Onboarding flow
+  /upload.tsx          # Recipe upload screen
+  /recipe.tsx          # Recipe detail view
+  /paywall.tsx         # Subscription paywall
+  /_layout.tsx         # Root navigation layout
+
+/src                   # Custom application code
+  /components          # Custom UI components
+  /services            # Backend services (Supabase, OpenAI, RevenueCat)
+
+/components            # Shared components
+/hooks                 # Custom React hooks
+/constants             # Theme colors and constants
+/assets                # Images and assets
+```
+
+## Getting Started
+
+1. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. **Set up environment variables**
+
+   Copy `.env.example` to `.env` and fill in your credentials:
+   - Supabase URL and API keys
+   - OpenAI API key
+   - RevenueCat API key
+
+3. **Run the app**
 
    ```bash
-   npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+   Then use:
+   - Press `i` for iOS simulator
+   - Press `a` for Android emulator
+   - Scan QR code with Expo Go app
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Development
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **Start dev server**: `npm start`
+- **iOS**: `npm run ios`
+- **Android**: `npm run android`
+- **Lint**: `npm run lint`
 
-## Get a fresh project
+## Documentation
 
-When you're ready, run:
+- [Supabase Schema](./SUPABASE_SCHEMA.md) - Database structure
+- [Library Photos Setup](./LIBRARY_PHOTOS_SETUP.md) - Recipe library configuration
 
-```bash
-npm run reset-project
-```
+## Color Scheme
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- **Primary**: `#9FE870` (Green)
+- **Secondary**: `#9FE870` (Green)
+- **Background**: `#1C1C1C` (Dark)
+- **Surface**: `#2C2C2C` (Card background)
 
-## Learn more
+## License
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Private project
