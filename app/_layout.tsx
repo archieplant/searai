@@ -10,6 +10,7 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { getCurrentUser, onAuthStateChange } from '@/src/services/supabase';
 import { initializeRevenueCat } from '@/src/services/revenuecat';
+import ErrorBoundary from '@/src/components/ErrorBoundary';
 import type { User } from '@supabase/supabase-js';
 
 export default function RootLayout() {
@@ -112,8 +113,7 @@ export default function RootLayout() {
       }
 
       // Priority 2: If logged in AND has completed onboarding, but in auth/onboarding/welcome screens, redirect to main app
-      // BUT: Skip this redirect if we're in testing mode (to allow viewing welcome screen)
-      if (user && hasOnboarded && (inWelcomeScreen || inOnboardingGroup || inAuthGroup) && !FORCE_ONBOARDING_FOR_TESTING) {
+      if (user && hasOnboarded && (inWelcomeScreen || inOnboardingGroup || inAuthGroup)) {
         console.log('User logged in with completed onboarding, redirecting to main app from auth flow');
         router.replace('/(tabs)');
         return;
@@ -140,25 +140,27 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="welcome" options={{ headerShown: false }} />
-          <Stack.Screen name="onboarding/index" options={{ headerShown: false }} />
-          <Stack.Screen name="onboarding/how-it-works" options={{ headerShown: false }} />
-          <Stack.Screen name="onboarding/personal-info" options={{ headerShown: false }} />
-          <Stack.Screen name="onboarding/preferences" options={{ headerShown: false }} />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="auth/login" options={{ headerShown: false }} />
-          <Stack.Screen name="auth/signup" options={{ headerShown: false }} />
-          <Stack.Screen name="upload" options={{ headerShown: false }} />
-          <Stack.Screen name="recipe" options={{ headerShown: false }} />
-          <Stack.Screen name="paywall" options={{ presentation: 'modal', headerShown: false }} />
-          <Stack.Screen name="profile" options={{ headerShown: false }} />
-        </Stack>
-        <StatusBar style="auto" />
-      </ThemeProvider>
-    </GestureHandlerRootView>
+    <ErrorBoundary>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <Stack>
+            <Stack.Screen name="welcome" options={{ headerShown: false }} />
+            <Stack.Screen name="onboarding/index" options={{ headerShown: false }} />
+            <Stack.Screen name="onboarding/how-it-works" options={{ headerShown: false }} />
+            <Stack.Screen name="onboarding/personal-info" options={{ headerShown: false }} />
+            <Stack.Screen name="onboarding/preferences" options={{ headerShown: false }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="auth/login" options={{ headerShown: false }} />
+            <Stack.Screen name="auth/signup" options={{ headerShown: false }} />
+            <Stack.Screen name="upload" options={{ headerShown: false }} />
+            <Stack.Screen name="recipe" options={{ headerShown: false }} />
+            <Stack.Screen name="paywall" options={{ presentation: 'modal', headerShown: false }} />
+            <Stack.Screen name="profile" options={{ headerShown: false }} />
+          </Stack>
+          <StatusBar style="auto" />
+        </ThemeProvider>
+      </GestureHandlerRootView>
+    </ErrorBoundary>
   );
 }
 

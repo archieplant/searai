@@ -11,9 +11,14 @@ export default {
     userInterfaceStyle: 'automatic',
     newArchEnabled: true,
     ios: {
+      bundleIdentifier: 'com.archieplant.recipekillerai',
       supportsTablet: true,
+      infoPlist: {
+        NSPrivacyPolicyURL: 'https://archieplant.github.io/recipe-killer-ai/privacy-policy.html',
+      },
     },
     android: {
+      package: 'com.archieplant.recipekillerai',
       adaptiveIcon: {
         backgroundColor: '#E6F4FE',
         foregroundImage: './assets/images/android-icon-foreground.png',
