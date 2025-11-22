@@ -8,6 +8,36 @@
 -- =====================================================
 
 -- =====================================================
+-- DROP EXISTING POLICIES (if any)
+-- =====================================================
+-- This ensures a clean slate if script was partially run before
+
+DROP POLICY IF EXISTS "Users can view own subscription" ON user_subscriptions;
+DROP POLICY IF EXISTS "Users can insert own subscription" ON user_subscriptions;
+DROP POLICY IF EXISTS "Users can update own subscription" ON user_subscriptions;
+DROP POLICY IF EXISTS "Service role can manage all subscriptions" ON user_subscriptions;
+
+DROP POLICY IF EXISTS "Users can view own analyses" ON recipe_analyses;
+DROP POLICY IF EXISTS "Users can insert own analyses" ON recipe_analyses;
+DROP POLICY IF EXISTS "Service role can manage all analyses" ON recipe_analyses;
+
+DROP POLICY IF EXISTS "Users can view own profile" ON user_profiles;
+DROP POLICY IF EXISTS "Users can insert own profile" ON user_profiles;
+DROP POLICY IF EXISTS "Users can update own profile" ON user_profiles;
+DROP POLICY IF EXISTS "Service role can manage all profiles" ON user_profiles;
+
+DROP POLICY IF EXISTS "Users can view own saved recipes" ON saved_recipes;
+DROP POLICY IF EXISTS "Users can insert own saved recipes" ON saved_recipes;
+DROP POLICY IF EXISTS "Users can update own saved recipes" ON saved_recipes;
+DROP POLICY IF EXISTS "Users can delete own saved recipes" ON saved_recipes;
+DROP POLICY IF EXISTS "Service role can manage all saved recipes" ON saved_recipes;
+
+DROP POLICY IF EXISTS "Users can view own consents" ON legal_consents;
+DROP POLICY IF EXISTS "Users can insert own consents" ON legal_consents;
+DROP POLICY IF EXISTS "Users can update own consents" ON legal_consents;
+DROP POLICY IF EXISTS "Service role can manage all consents" ON legal_consents;
+
+-- =====================================================
 -- 1. USER_SUBSCRIPTIONS TABLE
 -- =====================================================
 
@@ -19,22 +49,22 @@ CREATE POLICY "Users can view own subscription"
 ON user_subscriptions
 FOR SELECT
 TO authenticated
-USING (auth.uid()::text = user_id);
+USING (user_id::text = auth.uid()::text);
 
 -- Policy: Users can insert their own subscription (for initial setup)
 CREATE POLICY "Users can insert own subscription"
 ON user_subscriptions
 FOR INSERT
 TO authenticated
-WITH CHECK (auth.uid()::text = user_id);
+WITH CHECK (user_id::text = auth.uid()::text);
 
 -- Policy: Users can update their own subscription
 CREATE POLICY "Users can update own subscription"
 ON user_subscriptions
 FOR UPDATE
 TO authenticated
-USING (auth.uid()::text = user_id)
-WITH CHECK (auth.uid()::text = user_id);
+USING (user_id::text = auth.uid()::text)
+WITH CHECK (user_id::text = auth.uid()::text);
 
 -- Policy: Service role can manage all subscriptions (for RevenueCat webhooks)
 CREATE POLICY "Service role can manage all subscriptions"
@@ -56,14 +86,14 @@ CREATE POLICY "Users can view own analyses"
 ON recipe_analyses
 FOR SELECT
 TO authenticated
-USING (auth.uid()::text = user_id);
+USING (user_id::text = auth.uid()::text);
 
 -- Policy: Users can insert their own analyses
 CREATE POLICY "Users can insert own analyses"
 ON recipe_analyses
 FOR INSERT
 TO authenticated
-WITH CHECK (auth.uid()::text = user_id);
+WITH CHECK (user_id::text = auth.uid()::text);
 
 -- Policy: Service role can manage all analyses (for admin/cleanup)
 CREATE POLICY "Service role can manage all analyses"
@@ -85,22 +115,22 @@ CREATE POLICY "Users can view own profile"
 ON user_profiles
 FOR SELECT
 TO authenticated
-USING (auth.uid()::text = user_id);
+USING (user_id::text = auth.uid()::text);
 
 -- Policy: Users can insert their own profile
 CREATE POLICY "Users can insert own profile"
 ON user_profiles
 FOR INSERT
 TO authenticated
-WITH CHECK (auth.uid()::text = user_id);
+WITH CHECK (user_id::text = auth.uid()::text);
 
 -- Policy: Users can update their own profile
 CREATE POLICY "Users can update own profile"
 ON user_profiles
 FOR UPDATE
 TO authenticated
-USING (auth.uid()::text = user_id)
-WITH CHECK (auth.uid()::text = user_id);
+USING (user_id::text = auth.uid()::text)
+WITH CHECK (user_id::text = auth.uid()::text);
 
 -- Policy: Service role can manage all profiles
 CREATE POLICY "Service role can manage all profiles"
@@ -122,29 +152,29 @@ CREATE POLICY "Users can view own saved recipes"
 ON saved_recipes
 FOR SELECT
 TO authenticated
-USING (auth.uid()::text = user_id);
+USING (user_id::text = auth.uid()::text);
 
 -- Policy: Users can insert their own saved recipes
 CREATE POLICY "Users can insert own saved recipes"
 ON saved_recipes
 FOR INSERT
 TO authenticated
-WITH CHECK (auth.uid()::text = user_id);
+WITH CHECK (user_id::text = auth.uid()::text);
 
 -- Policy: Users can update their own saved recipes
 CREATE POLICY "Users can update own saved recipes"
 ON saved_recipes
 FOR UPDATE
 TO authenticated
-USING (auth.uid()::text = user_id)
-WITH CHECK (auth.uid()::text = user_id);
+USING (user_id::text = auth.uid()::text)
+WITH CHECK (user_id::text = auth.uid()::text);
 
 -- Policy: Users can delete their own saved recipes
 CREATE POLICY "Users can delete own saved recipes"
 ON saved_recipes
 FOR DELETE
 TO authenticated
-USING (auth.uid()::text = user_id);
+USING (user_id::text = auth.uid()::text);
 
 -- Policy: Service role can manage all saved recipes
 CREATE POLICY "Service role can manage all saved recipes"
@@ -173,22 +203,22 @@ BEGIN
     ON legal_consents
     FOR SELECT
     TO authenticated
-    USING (auth.uid()::text = user_id);
+    USING (user_id::text = auth.uid()::text);
 
     -- Policy: Users can insert their own consents
     CREATE POLICY "Users can insert own consents"
     ON legal_consents
     FOR INSERT
     TO authenticated
-    WITH CHECK (auth.uid()::text = user_id);
+    WITH CHECK (user_id::text = auth.uid()::text);
 
     -- Policy: Users can update their own consents
     CREATE POLICY "Users can update own consents"
     ON legal_consents
     FOR UPDATE
     TO authenticated
-    USING (auth.uid()::text = user_id)
-    WITH CHECK (auth.uid()::text = user_id);
+    USING (user_id::text = auth.uid()::text)
+    WITH CHECK (user_id::text = auth.uid()::text);
 
     -- Policy: Service role can manage all consents
     CREATE POLICY "Service role can manage all consents"
