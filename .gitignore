@@ -28,6 +28,7 @@ yarn-error.*
 
 # macOS
 .DS_Store
+**/.DS_Store
 *.pem
 
 # local env files
@@ -42,3 +43,6 @@ app-example
 # generated native folders
 /ios
 /android
+
+# Supabase temporary files
+supabase/.temp/

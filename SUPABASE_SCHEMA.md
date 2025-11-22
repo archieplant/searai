@@ -24,8 +24,9 @@ CREATE TABLE user_subscriptions (
 -- Create index for faster lookups
 CREATE INDEX idx_user_subscriptions_user_id ON user_subscriptions(user_id);
 
--- Disable RLS for now (enable in production with proper policies)
-ALTER TABLE user_subscriptions DISABLE ROW LEVEL SECURITY;
+-- Row Level Security is ENABLED with proper policies
+-- See: supabase/migrations/enable_rls_policies.sql
+ALTER TABLE user_subscriptions ENABLE ROW LEVEL SECURITY;
 ```
 
 **Columns:**
@@ -39,7 +40,7 @@ ALTER TABLE user_subscriptions DISABLE ROW LEVEL SECURITY;
 
 **Notes:**
 - User can only have one subscription record (enforced by UNIQUE constraint on user_id)
-- RLS is disabled for initial development - should be enabled in production
+- **RLS is ENABLED** - Users can only access their own subscription data
 
 ---
 
@@ -59,8 +60,9 @@ CREATE TABLE recipe_analyses (
 -- Create index for faster monthly count queries
 CREATE INDEX idx_recipe_analyses_user_created ON recipe_analyses(user_id, created_at);
 
--- Disable RLS for now (enable in production with proper policies)
-ALTER TABLE recipe_analyses DISABLE ROW LEVEL SECURITY;
+-- Row Level Security is ENABLED with proper policies
+-- See: supabase/migrations/enable_rls_policies.sql
+ALTER TABLE recipe_analyses ENABLE ROW LEVEL SECURITY;
 ```
 
 **Columns:**
@@ -151,9 +153,16 @@ const FREE_TIER_LIMITS = {
 
 ---
 
+## Security
+
+**Row Level Security (RLS) is ENABLED** on all tables. See `supabase/migrations/enable_rls_policies.sql` for the complete security policy implementation.
+
+- Users can only access their own data
+- Service role (Edge Functions/webhooks) can manage all data
+- Anonymous users have no access
+
 ## Future Enhancements
 
-- Enable RLS with proper policies
 - Add webhook integration with RevenueCat
 - Add `subscription_id` from RevenueCat for reference
 - Add `cancelled_at` field for cancellation tracking
