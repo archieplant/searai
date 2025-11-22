@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     height: 24,
     borderRadius: 6,
     borderWidth: 2,
-    borderColor: '#666666',
+    borderColor: '#636366',
     backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center',
@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   checkboxChecked: {
-    backgroundColor: '#9FE870',
-    borderColor: '#9FE870',
+    backgroundColor: '#A4E900',
+    borderColor: '#A4E900',
   },
   labelContainer: {
     flex: 1,
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   link: {
-    color: '#9FE870',
+    color: '#A4E900',
     textDecorationLine: 'underline',
     fontWeight: '600',
   },

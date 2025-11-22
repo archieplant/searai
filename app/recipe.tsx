@@ -242,7 +242,7 @@ export default function RecipeScreen() {
               <Ionicons
                 name="home-outline"
                 size={28}
-                color="#9FE870"
+                color="#A4E900"
               />
             </TouchableOpacity>
 
@@ -256,7 +256,7 @@ export default function RecipeScreen() {
               <Ionicons
                 name={isSaving ? "hourglass-outline" : "bookmark-outline"}
                 size={28}
-                color="#9FE870"
+                color="#A4E900"
               />
             </TouchableOpacity>
 
@@ -270,7 +270,7 @@ export default function RecipeScreen() {
               <Ionicons
                 name={isSharing ? "hourglass-outline" : "share-social-outline"}
                 size={28}
-                color="#9FE870"
+                color="#A4E900"
               />
             </TouchableOpacity>
           </View>
@@ -299,7 +299,7 @@ export default function RecipeScreen() {
               activeOpacity={0.8}
             >
               <Text style={styles.expandButtonText}>View Full Recipe</Text>
-              <Ionicons name="chevron-up" size={20} color="#1C1C1C" />
+              <Ionicons name="chevron-up" size={20} color="#000000" />
             </TouchableOpacity>
           </>
         ) : (
@@ -397,8 +397,7 @@ export default function RecipeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
-    paddingTop: 60,
+    backgroundColor: '#000000',
   },
   backButton: {
     position: 'absolute',
@@ -408,7 +407,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
@@ -420,16 +419,17 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   imageContainer: {
+    height: 280,
     paddingHorizontal: 24,
-    paddingTop: 8,
+    paddingTop: 68,
     paddingBottom: 12,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   recipeImage: {
     width: '100%',
-    height: 240,
+    height: 200,
     borderRadius: 12,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
@@ -437,22 +437,24 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   nameContainer: {
+    height: 80,
     paddingHorizontal: 24,
-    paddingVertical: 16,
-    backgroundColor: '#1C1C1C',
+    paddingVertical: 12,
+    backgroundColor: '#000000',
+    justifyContent: 'center',
   },
   dishName: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#FFFFFF',
     textAlign: 'center',
-    lineHeight: 32,
+    lineHeight: 28,
   },
   sliderContainer: {
     paddingTop: 24,
     paddingBottom: 20,
     paddingHorizontal: 24,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   actionButtons: {
     flexDirection: 'row',
@@ -467,7 +469,7 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderWidth: 2,
     borderColor: '#3C3C3C',
     shadowColor: '#000',
@@ -481,14 +483,15 @@ const styles = StyleSheet.create({
   },
   previewContainer: {
     flex: 1,
-    padding: 24,
-    justifyContent: 'center',
+    paddingHorizontal: 24,
+    paddingTop: 16,
+    paddingBottom: 24,
   },
   infoContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginBottom: 32,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     padding: 24,
     borderRadius: 16,
   },
@@ -498,13 +501,13 @@ const styles = StyleSheet.create({
   },
   infoText: {
     fontSize: 18,
-    color: '#9FE870',
+    color: '#A4E900',
     fontWeight: '700',
     marginLeft: 12,
   },
   servingsText: {
     fontSize: 18,
-    color: '#9FE870',
+    color: '#A4E900',
     fontWeight: '700',
     marginLeft: 12,
   },
@@ -512,19 +515,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingVertical: 18,
     paddingHorizontal: 32,
     borderRadius: 16,
     gap: 8,
-    shadowColor: '#9FE870',
+    shadowColor: '#A4E900',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 6,
   },
   expandButtonText: {
-    color: '#1C1C1C',
+    color: '#000000',
     fontSize: 18,
     fontWeight: '700',
   },
@@ -555,22 +558,22 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 20,
     borderRadius: 12,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     alignItems: 'center',
     borderWidth: 2,
     borderColor: '#3C3C3C',
   },
   tabButtonActive: {
-    backgroundColor: '#9FE870',
-    borderColor: '#9FE870',
+    backgroundColor: '#A4E900',
+    borderColor: '#A4E900',
   },
   tabButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   tabButtonTextActive: {
-    color: '#1C1C1C',
+    color: '#000000',
   },
   modalScrollView: {
     flex: 1,
@@ -586,7 +589,7 @@ const styles = StyleSheet.create({
   },
   bullet: {
     fontSize: 16,
-    color: '#9FE870',
+    color: '#A4E900',
     marginRight: 12,
     marginTop: 2,
     fontWeight: 'bold',
@@ -606,7 +609,7 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderRadius: 14,
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -625,7 +628,7 @@ const styles = StyleSheet.create({
   },
   noDataText: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
     marginTop: 40,
   },

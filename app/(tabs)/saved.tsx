@@ -186,7 +186,7 @@ export default function SavedScreen() {
   if (isLoading) {
     return (
       <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color="#9FE870" />
+        <ActivityIndicator size="large" color="#A4E900" />
         <Text style={styles.loadingText}>Loading saved recipes...</Text>
       </View>
     );
@@ -212,13 +212,13 @@ export default function SavedScreen() {
           <RefreshControl
             refreshing={isRefreshing}
             onRefresh={onRefresh}
-            tintColor="#9FE870"
+            tintColor="#A4E900"
           />
         }
       >
         {savedRecipes.length === 0 ? (
           <View style={styles.emptyContainer}>
-            <Ionicons name="bookmark-outline" size={64} color="#666666" />
+            <Ionicons name="bookmark-outline" size={64} color="#636366" />
             <Text style={styles.emptyTitle}>No saved recipes yet</Text>
             <Text style={styles.emptySubtitle}>
               Recipes you save will appear here
@@ -235,24 +235,24 @@ export default function SavedScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   centerContainer: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
   },
   loadingText: {
     marginTop: 16,
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   header: {
     paddingHorizontal: 20,
     paddingTop: 80,
     paddingBottom: 20,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   headerTitle: {
     fontSize: 28,
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
   },
   headerCount: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   scrollView: {
     flex: 1,
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
   },
   recipeCard: {
     flex: 1,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     overflow: 'hidden',
     position: 'relative',
@@ -294,12 +294,12 @@ const styles = StyleSheet.create({
   recipeImage: {
     width: '100%',
     aspectRatio: 1.2,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
   },
   imagePlaceholder: {
     width: '100%',
     aspectRatio: 1.2,
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
   },
   complexityBadge: {
     alignSelf: 'flex-start',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 6,
@@ -353,7 +353,7 @@ const styles = StyleSheet.create({
   },
   emptySubtitle: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
   },
 });

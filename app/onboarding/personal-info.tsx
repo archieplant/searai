@@ -94,13 +94,13 @@ export default function PersonalInfoScreen() {
             <Ionicons
               name="person-outline"
               size={20}
-              color="#9FE870"
+              color="#A4E900"
               style={styles.inputIcon}
             />
             <TextInput
               style={styles.input}
               placeholder="Enter your first name"
-              placeholderTextColor="#666666"
+              placeholderTextColor="#636366"
               value={firstName}
               onChangeText={setFirstName}
               autoCapitalize="words"
@@ -116,13 +116,13 @@ export default function PersonalInfoScreen() {
             <Ionicons
               name="person-outline"
               size={20}
-              color="#9FE870"
+              color="#A4E900"
               style={styles.inputIcon}
             />
             <TextInput
               style={styles.input}
               placeholder="Enter your last name"
-              placeholderTextColor="#666666"
+              placeholderTextColor="#636366"
               value={lastName}
               onChangeText={setLastName}
               autoCapitalize="words"
@@ -138,14 +138,14 @@ export default function PersonalInfoScreen() {
             <Ionicons
               name="megaphone-outline"
               size={20}
-              color="#9FE870"
+              color="#A4E900"
               style={styles.pickerIcon}
             />
             <Picker
               selectedValue={referralSource}
               onValueChange={(itemValue) => setReferralSource(itemValue)}
               style={styles.picker}
-              dropdownIconColor="#9FE870"
+              dropdownIconColor="#A4E900"
             >
               {REFERRAL_SOURCES.map((source) => (
                 <Picker.Item
@@ -169,7 +169,7 @@ export default function PersonalInfoScreen() {
           activeOpacity={0.8}
         >
           <Text style={styles.nextButtonText}>Continue</Text>
-          <Ionicons name="arrow-forward" size={20} color="#1C1C1C" />
+          <Ionicons name="arrow-forward" size={20} color="#000000" />
         </TouchableOpacity>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -179,7 +179,7 @@ export default function PersonalInfoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   scrollContent: {
     flexGrow: 1,
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
     marginBottom: 40,
   },
   inputSection: {
@@ -215,12 +215,12 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     paddingHorizontal: 16,
     paddingVertical: 4,
     borderWidth: 2,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
   },
   inputIcon: {
     marginRight: 12,
@@ -234,11 +234,11 @@ const styles = StyleSheet.create({
   pickerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     paddingLeft: 16,
     borderWidth: 2,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
   },
   pickerIcon: {
     marginRight: 12,
@@ -256,18 +256,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingVertical: 16,
     paddingHorizontal: 32,
     borderRadius: 12,
-    shadowColor: '#9FE870',
+    shadowColor: '#A4E900',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 6,
   },
   nextButtonText: {
-    color: '#1C1C1C',
+    color: '#000000',
     fontSize: 18,
     fontWeight: '700',
     marginRight: 8,

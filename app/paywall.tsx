@@ -219,7 +219,7 @@ export default function PaywallScreen() {
         </View>
         {isSelected && (
           <View style={styles.selectedIndicator}>
-            <Ionicons name="checkmark-circle" size={24} color="#9FE870" />
+            <Ionicons name="checkmark-circle" size={24} color="#A4E900" />
           </View>
         )}
       </TouchableOpacity>
@@ -260,7 +260,7 @@ export default function PaywallScreen() {
           {/* Subscription Packages */}
           {isLoading ? (
             <View style={styles.loadingContainer}>
-              <ActivityIndicator size="large" color="#9FE870" />
+              <ActivityIndicator size="large" color="#A4E900" />
               <Text style={styles.loadingText}>Loading options...</Text>
             </View>
           ) : packages.length > 0 ? (
@@ -288,7 +288,7 @@ export default function PaywallScreen() {
               disabled={isPurchasing || !selectedPackage}
             >
               {isPurchasing ? (
-                <ActivityIndicator size="small" color="#1C1C1C" />
+                <ActivityIndicator size="small" color="#000000" />
               ) : (
                 <Text style={styles.continueButtonText}>Continue</Text>
               )}
@@ -331,7 +331,7 @@ export default function PaywallScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   header: {
     flexDirection: 'row',
@@ -346,7 +346,7 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     padding: 8,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 20,
   },
   scrollView: {
@@ -369,7 +369,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 18,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
   },
   benefitsSection: {
@@ -384,7 +384,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 16,
@@ -398,12 +398,12 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   packageCard: {
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     padding: 20,
     marginBottom: 16,
     borderWidth: 2,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
@@ -412,14 +412,14 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   packageCardSelected: {
-    borderColor: '#9FE870',
+    borderColor: '#A4E900',
     borderWidth: 2,
   },
   saveBadge: {
     position: 'absolute',
     top: -10,
     right: 20,
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingHorizontal: 12,
     paddingVertical: 4,
     borderRadius: 12,
@@ -441,12 +441,12 @@ const styles = StyleSheet.create({
   packagePrice: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#9FE870',
+    color: '#A4E900',
     marginBottom: 4,
   },
   packageSubtext: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   selectedIndicator: {
     position: 'absolute',
@@ -454,13 +454,13 @@ const styles = StyleSheet.create({
     right: 20,
   },
   continueButton: {
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingVertical: 18,
     paddingHorizontal: 32,
     borderRadius: 12,
     alignItems: 'center',
     marginBottom: 20,
-    shadowColor: '#9FE870',
+    shadowColor: '#A4E900',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 8,
@@ -471,7 +471,7 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   continueButtonText: {
-    color: '#1C1C1C',
+    color: '#000000',
     fontSize: 18,
     fontWeight: '700',
   },
@@ -481,18 +481,18 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   restoreButtonText: {
-    color: '#9FE870',
+    color: '#A4E900',
     fontSize: 16,
     fontWeight: '600',
   },
   termsText: {
     fontSize: 12,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
     lineHeight: 18,
   },
   termsLink: {
-    color: '#9FE870',
+    color: '#A4E900',
     textDecorationLine: 'underline',
   },
   loadingContainer: {
@@ -502,7 +502,7 @@ const styles = StyleSheet.create({
   loadingText: {
     marginTop: 12,
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   noPackagesContainer: {
     alignItems: 'center',
@@ -510,7 +510,7 @@ const styles = StyleSheet.create({
   },
   noPackagesText: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
   },
 });

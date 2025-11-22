@@ -163,7 +163,7 @@ export default function SignupScreen() {
         {/* Header */}
         <View style={styles.header}>
           <View style={styles.logoContainer}>
-            <Ionicons name="restaurant" size={48} color="#9FE870" />
+            <Ionicons name="restaurant" size={48} color="#A4E900" />
           </View>
           <Text style={styles.appName}>Recipe Killer</Text>
           <Text style={styles.welcomeText}>Create your account</Text>
@@ -178,13 +178,13 @@ export default function SignupScreen() {
               <Ionicons
                 name="person-outline"
                 size={20}
-                color="#9FE870"
+                color="#A4E900"
                 style={styles.inputIcon}
               />
               <TextInput
                 style={styles.input}
                 placeholder="Your name"
-                placeholderTextColor="#666666"
+                placeholderTextColor="#636366"
                 value={name}
                 onChangeText={setName}
                 autoCapitalize="words"
@@ -202,13 +202,13 @@ export default function SignupScreen() {
               <Ionicons
                 name="mail-outline"
                 size={20}
-                color="#9FE870"
+                color="#A4E900"
                 style={styles.inputIcon}
               />
               <TextInput
                 style={styles.input}
                 placeholder="your.email@example.com"
-                placeholderTextColor="#666666"
+                placeholderTextColor="#636366"
                 value={email}
                 onChangeText={setEmail}
                 keyboardType="email-address"
@@ -227,13 +227,13 @@ export default function SignupScreen() {
               <Ionicons
                 name="lock-closed-outline"
                 size={20}
-                color="#9FE870"
+                color="#A4E900"
                 style={styles.inputIcon}
               />
               <TextInput
                 style={styles.input}
                 placeholder="At least 6 characters"
-                placeholderTextColor="#666666"
+                placeholderTextColor="#636366"
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry={!showPassword}
@@ -250,7 +250,7 @@ export default function SignupScreen() {
                 <Ionicons
                   name={showPassword ? 'eye-off-outline' : 'eye-outline'}
                   size={20}
-                  color="#9FE870"
+                  color="#A4E900"
                 />
               </TouchableOpacity>
             </View>
@@ -263,13 +263,13 @@ export default function SignupScreen() {
               <Ionicons
                 name="lock-closed-outline"
                 size={20}
-                color="#9FE870"
+                color="#A4E900"
                 style={styles.inputIcon}
               />
               <TextInput
                 style={styles.input}
                 placeholder="Re-enter your password"
-                placeholderTextColor="#666666"
+                placeholderTextColor="#636366"
                 value={confirmPassword}
                 onChangeText={setConfirmPassword}
                 secureTextEntry={!showConfirmPassword}
@@ -286,7 +286,7 @@ export default function SignupScreen() {
                 <Ionicons
                   name={showConfirmPassword ? 'eye-off-outline' : 'eye-outline'}
                   size={20}
-                  color="#9FE870"
+                  color="#A4E900"
                 />
               </TouchableOpacity>
             </View>
@@ -325,7 +325,7 @@ export default function SignupScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   scrollContent: {
     flexGrow: 1,
@@ -341,12 +341,12 @@ const styles = StyleSheet.create({
     width: 96,
     height: 96,
     borderRadius: 48,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
     borderWidth: 2,
-    borderColor: '#9FE870',
+    borderColor: '#A4E900',
   },
   appName: {
     fontSize: 32,
@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   formContainer: {
     flex: 1,
@@ -373,10 +373,10 @@ const styles = StyleSheet.create({
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
     paddingHorizontal: 16,
     height: 56,
   },
@@ -393,14 +393,14 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   signupButton: {
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     borderRadius: 12,
     height: 56,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 8,
     marginBottom: 24,
-    shadowColor: '#9FE870',
+    shadowColor: '#A4E900',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -412,7 +412,7 @@ const styles = StyleSheet.create({
   signupButtonText: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: '#000000',
   },
   loginContainer: {
     flexDirection: 'row',
@@ -421,11 +421,11 @@ const styles = StyleSheet.create({
   },
   loginPrompt: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   loginLink: {
     fontSize: 14,
-    color: '#9FE870',
+    color: '#A4E900',
     fontWeight: '600',
   },
 });

@@ -6,42 +6,42 @@
 import { Platform } from 'react-native';
 
 export const Colors = {
-  // Primary brand colors
-  primary: '#9FE870',        // Green - main accent color
-  secondary: '#9FE870',      // Green - secondary accent
+  // Primary brand colors - Premium Dark Theme
+  primary: '#A4E900',        // Refined green - main accent color
+  secondary: '#A4E900',      // Refined green - secondary accent
   tertiary: '#E07A5F',       // Coral - tertiary accent
 
-  // Background colors
+  // Background colors - Premium Dark Theme
   background: {
-    primary: '#1C1C1C',      // Main background
-    secondary: '#2C2C2C',    // Card/elevated background
-    tertiary: '#3C3C3C',     // Borders and dividers
+    primary: '#000000',      // Pure black - main background
+    secondary: '#1C1C1E',    // Dark card/surface background
+    tertiary: '#2C2C2E',     // Elevated surfaces and dividers
   },
 
-  // Text colors
+  // Text colors - Premium Dark Theme
   text: {
     primary: '#FFFFFF',      // Main text
-    secondary: '#AAAAAA',    // Subtext
-    tertiary: '#666666',     // Disabled/placeholder
-    inverse: '#1C1C1C',      // Text on light backgrounds
+    secondary: '#98989D',    // Muted grey - subtext/labels
+    tertiary: '#636366',     // Subtle grey - disabled/placeholder
+    inverse: '#000000',      // Text on light backgrounds
   },
 
   // Legacy theme support (for compatibility)
   light: {
     text: '#11181C',
-    background: '#FAF9F6',
-    tint: '#9FE870',
+    background: '#000000',
+    tint: '#A4E900',
     icon: '#687076',
     tabIconDefault: '#687076',
-    tabIconSelected: '#9FE870',
+    tabIconSelected: '#A4E900',
   },
   dark: {
     text: '#FFFFFF',
-    background: '#1C1C1C',
-    tint: '#9FE870',
-    icon: '#AAAAAA',
-    tabIconDefault: '#AAAAAA',
-    tabIconSelected: '#9FE870',
+    background: '#000000',
+    tint: '#A4E900',
+    icon: '#98989D',
+    tabIconDefault: '#98989D',
+    tabIconSelected: '#A4E900',
   },
 };
 

@@ -24,9 +24,9 @@ const CATEGORY_COLORS: Record<string, string> = {
   Asian: '#F4A261',
   American: '#E76F51',
   Mediterranean: '#2A9D8F',
-  Vegetarian: '#9FE870',
-  Desserts: '#9FE870',
-  All: '#9FE870',
+  Vegetarian: '#A4E900',
+  Desserts: '#A4E900',
+  All: '#A4E900',
 };
 
 export default function LibraryScreen() {
@@ -96,7 +96,7 @@ export default function LibraryScreen() {
 
   // Render recipe card
   const renderRecipeCard = (item: LibraryRecipe, isFullWidth: boolean = false) => {
-    const placeholderColor = CATEGORY_COLORS[item.category] || '#9FE870';
+    const placeholderColor = CATEGORY_COLORS[item.category] || '#A4E900';
 
     return (
       <TouchableOpacity
@@ -180,7 +180,7 @@ export default function LibraryScreen() {
   if (isLoading) {
     return (
       <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color="#9FE870" />
+        <ActivityIndicator size="large" color="#A4E900" />
         <Text style={styles.loadingText}>Loading library...</Text>
       </View>
     );
@@ -218,13 +218,13 @@ export default function LibraryScreen() {
           <RefreshControl
             refreshing={isRefreshing}
             onRefresh={onRefresh}
-            tintColor="#9FE870"
+            tintColor="#A4E900"
           />
         }
       >
         {libraryRecipes.length === 0 ? (
           <View style={styles.emptyContainer}>
-            <Ionicons name="book-outline" size={64} color="#666666" />
+            <Ionicons name="book-outline" size={64} color="#636366" />
             <Text style={styles.emptyTitle}>Library Coming Soon!</Text>
             <Text style={styles.emptySubtitle}>
               Curated recipes will appear here
@@ -232,7 +232,7 @@ export default function LibraryScreen() {
           </View>
         ) : recipes.length === 0 ? (
           <View style={styles.emptyFilterContainer}>
-            <Ionicons name="filter-outline" size={48} color="#666666" />
+            <Ionicons name="filter-outline" size={48} color="#636366" />
             <Text style={styles.emptyFilterText}>
               No {selectedCategory} recipes yet
             </Text>
@@ -248,24 +248,24 @@ export default function LibraryScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   centerContainer: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
   },
   loadingText: {
     marginTop: 16,
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   header: {
     paddingHorizontal: 20,
     paddingTop: 80,
     paddingBottom: 20,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   headerTitle: {
     fontSize: 28,
@@ -275,10 +275,10 @@ const styles = StyleSheet.create({
   },
   headerCount: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   tabsContainer: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     maxHeight: 50,
   },
   tabsContent: {
@@ -290,22 +290,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     marginRight: 8,
     borderWidth: 2,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
   },
   categoryTabActive: {
-    backgroundColor: '#9FE870',
-    borderColor: '#9FE870',
+    backgroundColor: '#A4E900',
+    borderColor: '#A4E900',
   },
   categoryTabText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   categoryTabTextActive: {
-    color: '#1C1C1C',
+    color: '#000000',
   },
   scrollView: {
     flex: 1,
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
   },
   recipeCard: {
     flex: 1,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     overflow: 'hidden',
   },
@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
   recipeImage: {
     width: '100%',
     aspectRatio: 1.2,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
   },
   imagePlaceholder: {
     width: '100%',
@@ -357,7 +357,7 @@ const styles = StyleSheet.create({
   },
   categoryBadge: {
     alignSelf: 'flex-start',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 6,
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
   categoryText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: '#000000',
   },
   emptyContainer: {
     flex: 1,
@@ -382,7 +382,7 @@ const styles = StyleSheet.create({
   },
   emptySubtitle: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
   },
   emptyFilterContainer: {
@@ -393,7 +393,7 @@ const styles = StyleSheet.create({
   },
   emptyFilterText: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
     marginTop: 16,
     textAlign: 'center',
   },

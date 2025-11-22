@@ -173,7 +173,7 @@ export default function HomeScreen() {
           activeOpacity={0.8}
         >
           <View style={styles.heroIconContainer}>
-            <Ionicons name="camera-outline" size={40} color="#1C1C1C" />
+            <Ionicons name="camera-outline" size={40} color="#000000" />
           </View>
           <Text style={styles.heroTitle}>Analyse Recipe</Text>
           <Text style={styles.heroSubtitle}>
@@ -191,7 +191,7 @@ export default function HomeScreen() {
 
           {recentRecipes.length === 0 ? (
             <View style={styles.emptyStateContainer}>
-              <Ionicons name="restaurant-outline" size={48} color="#666666" />
+              <Ionicons name="restaurant-outline" size={48} color="#636366" />
               <Text style={styles.emptyStateText}>No recipes yet</Text>
               <Text style={styles.emptyStateSubtext}>Analyse your first recipe above!</Text>
             </View>
@@ -240,7 +240,7 @@ export default function HomeScreen() {
 
           {libraryRecipes.length === 0 ? (
             <View style={styles.emptyStateContainer}>
-              <Ionicons name="book-outline" size={48} color="#666666" />
+              <Ionicons name="book-outline" size={48} color="#636366" />
               <Text style={styles.emptyStateText}>Library Coming Soon</Text>
             </View>
           ) : (
@@ -259,7 +259,7 @@ export default function HomeScreen() {
                       resizeMode="cover"
                     />
                   ) : (
-                    <View style={[styles.imagePlaceholder, { backgroundColor: '#9FE870' }]}>
+                    <View style={[styles.imagePlaceholder, { backgroundColor: '#A4E900' }]}>
                       <Ionicons name="restaurant" size={40} color="#FFFFFF" opacity={0.6} />
                     </View>
                   )}
@@ -284,7 +284,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   header: {
     flexDirection: 'row',
@@ -317,14 +317,14 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
   },
   heroCardWrapper: {
     marginHorizontal: 20,
     marginBottom: 36,
   },
   heroCard: {
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     padding: 28,
     borderRadius: 16,
     alignItems: 'center',
@@ -335,12 +335,12 @@ const styles = StyleSheet.create({
   heroTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#1C1C1C',
+    color: '#000000',
     marginBottom: 6,
   },
   heroSubtitle: {
     fontSize: 15,
-    color: '#2C2C2C',
+    color: '#1C1C1E',
     textAlign: 'center',
     fontWeight: '500',
   },
@@ -369,7 +369,7 @@ const styles = StyleSheet.create({
   seeMoreText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#9FE870',
+    color: '#A4E900',
   },
   gridContainer: {
     flexDirection: 'row',
@@ -379,7 +379,7 @@ const styles = StyleSheet.create({
   },
   recipeCard: {
     width: '47%',
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     overflow: 'hidden',
     marginBottom: 12,
@@ -387,12 +387,12 @@ const styles = StyleSheet.create({
   recipeImage: {
     width: '100%',
     aspectRatio: 1.2,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
   },
   imagePlaceholder: {
     width: '100%',
     aspectRatio: 1.2,
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -409,11 +409,11 @@ const styles = StyleSheet.create({
   },
   recipeTime: {
     fontSize: 12,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   categoryBadge: {
     alignSelf: 'flex-start',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 6,
@@ -421,7 +421,7 @@ const styles = StyleSheet.create({
   categoryText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: '#000000',
   },
   emptyStateContainer: {
     paddingVertical: 40,
@@ -431,12 +431,12 @@ const styles = StyleSheet.create({
   emptyStateText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#AAAAAA',
+    color: '#98989D',
     marginTop: 12,
   },
   emptyStateSubtext: {
     fontSize: 14,
-    color: '#666666',
+    color: '#636366',
     marginTop: 4,
   },
 });

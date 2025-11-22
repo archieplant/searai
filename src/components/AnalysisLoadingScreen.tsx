@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(28, 28, 28, 0.4)',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
   container: {
     width: '85%',
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     padding: 40,
     alignItems: 'center',
     overflow: 'hidden',
-    backgroundColor: 'rgba(44, 44, 44, 0.3)',
+    backgroundColor: 'rgba(28, 28, 30, 0.3)',
   },
   loadingText: {
     fontSize: 24,

@@ -47,7 +47,7 @@ export default {
       reactCompiler: true,
     },
     extra: {
-      openaiApiKey: process.env.OPENAI_API_KEY,
+      // OpenAI API key removed - now handled securely by backend Edge Function
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
       revenuecatApiKey: process.env.REVENUECAT_API_KEY,

@@ -12,10 +12,6 @@ import { getCurrentUser, onAuthStateChange } from '@/src/services/supabase';
 import { initializeRevenueCat } from '@/src/services/revenuecat';
 import type { User } from '@supabase/supabase-js';
 
-// TESTING MODE: Set to true to always show onboarding flow (for testing)
-// Set to false for production to use normal onboarding check
-const FORCE_ONBOARDING_FOR_TESTING = false;
-
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [user, setUser] = useState<User | null>(null);
@@ -85,7 +81,7 @@ export default function RootLayout() {
     const checkAndNavigate = async () => {
       // Re-check AsyncStorage to ensure we have the latest value
       const onboardingStatus = await AsyncStorage.getItem('onboardingComplete_v2');
-      const hasOnboarded = FORCE_ONBOARDING_FOR_TESTING ? false : onboardingStatus === 'true';
+      const hasOnboarded = onboardingStatus === 'true';
 
       // Update state if it changed
       if (hasOnboarded !== hasSeenOnboarding) {
@@ -105,7 +101,6 @@ export default function RootLayout() {
         hasOnboardedFromState: hasSeenOnboarding,
         user: !!user,
         segments,
-        testMode: FORCE_ONBOARDING_FOR_TESTING,
         onboardingStatusRaw: onboardingStatus
       });
 
@@ -139,7 +134,7 @@ export default function RootLayout() {
   if (isLoading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#E07A5F" />
+        <ActivityIndicator size="large" color="#A4E900" />
       </View>
     );
   }
@@ -170,7 +165,7 @@ export default function RootLayout() {
 const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
-    backgroundColor: '#FAF9F6',
+    backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
   },

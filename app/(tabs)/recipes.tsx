@@ -24,9 +24,9 @@ const CATEGORY_COLORS: Record<string, string> = {
   Asian: '#F4A261',
   American: '#E76F51',
   Mediterranean: '#2A9D8F',
-  Vegetarian: '#9FE870',
-  Desserts: '#9FE870',
-  All: '#9FE870',
+  Vegetarian: '#A4E900',
+  Desserts: '#A4E900',
+  All: '#A4E900',
 };
 
 type TabType = 'saved' | 'library';
@@ -234,7 +234,7 @@ export default function RecipesScreen() {
 
   // Render library recipe card
   const renderLibraryRecipeCard = (recipe: LibraryRecipe, isFullWidth: boolean = false) => {
-    const placeholderColor = CATEGORY_COLORS[recipe.category] || '#9FE870';
+    const placeholderColor = CATEGORY_COLORS[recipe.category] || '#A4E900';
 
     return (
       <TouchableOpacity
@@ -322,7 +322,7 @@ export default function RecipesScreen() {
   if (isLoading && !isRefreshing) {
     return (
       <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color="#9FE870" />
+        <ActivityIndicator size="large" color="#A4E900" />
         <Text style={styles.loadingText}>Loading recipes...</Text>
       </View>
     );
@@ -386,14 +386,14 @@ export default function RecipesScreen() {
           <RefreshControl
             refreshing={isRefreshing}
             onRefresh={onRefresh}
-            tintColor="#9FE870"
+            tintColor="#A4E900"
           />
         }
       >
         {activeTab === 'saved' ? (
           savedRecipes.length === 0 ? (
             <View style={styles.emptyContainer}>
-              <Ionicons name="bookmark-outline" size={64} color="#666666" />
+              <Ionicons name="bookmark-outline" size={64} color="#636366" />
               <Text style={styles.emptyTitle}>No saved recipes yet</Text>
               <Text style={styles.emptySubtitle}>
                 Recipes you save will appear here
@@ -404,7 +404,7 @@ export default function RecipesScreen() {
           )
         ) : libraryRecipes.length === 0 ? (
           <View style={styles.emptyContainer}>
-            <Ionicons name="book-outline" size={64} color="#666666" />
+            <Ionicons name="book-outline" size={64} color="#636366" />
             <Text style={styles.emptyTitle}>Library Coming Soon!</Text>
             <Text style={styles.emptySubtitle}>
               Curated recipes will appear here
@@ -412,7 +412,7 @@ export default function RecipesScreen() {
           </View>
         ) : displayRecipes.length === 0 ? (
           <View style={styles.emptyFilterContainer}>
-            <Ionicons name="filter-outline" size={48} color="#666666" />
+            <Ionicons name="filter-outline" size={48} color="#636366" />
             <Text style={styles.emptyFilterText}>
               No {selectedCategory} recipes yet
             </Text>
@@ -428,24 +428,24 @@ export default function RecipesScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   centerContainer: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
   },
   loadingText: {
     marginTop: 16,
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   header: {
     paddingHorizontal: 20,
     paddingTop: 80,
     paddingBottom: 20,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   headerTitle: {
     fontSize: 28,
@@ -455,7 +455,7 @@ const styles = StyleSheet.create({
   },
   headerCount: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   tabSelector: {
     flexDirection: 'row',
@@ -472,18 +472,18 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   tabActive: {
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
   },
   tabText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   tabTextActive: {
-    color: '#1C1C1C',
+    color: '#000000',
   },
   categoryTabsContainer: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     maxHeight: 50,
   },
   categoryTabsContent: {
@@ -495,22 +495,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     marginRight: 8,
     borderWidth: 2,
     borderColor: '#3C3C3C',
   },
   categoryTabActive: {
-    backgroundColor: '#9FE870',
-    borderColor: '#9FE870',
+    backgroundColor: '#A4E900',
+    borderColor: '#A4E900',
   },
   categoryTabText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   categoryTabTextActive: {
-    color: '#1C1C1C',
+    color: '#000000',
   },
   scrollView: {
     flex: 1,
@@ -531,7 +531,7 @@ const styles = StyleSheet.create({
   },
   recipeCard: {
     flex: 1,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     overflow: 'hidden',
     position: 'relative',
@@ -542,12 +542,12 @@ const styles = StyleSheet.create({
   recipeImage: {
     width: '100%',
     aspectRatio: 1.2,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
   },
   imagePlaceholder: {
     width: '100%',
     aspectRatio: 1.2,
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -564,7 +564,7 @@ const styles = StyleSheet.create({
   },
   complexityBadge: {
     alignSelf: 'flex-start',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 6,
@@ -572,11 +572,11 @@ const styles = StyleSheet.create({
   complexityText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: '#000000',
   },
   categoryBadge: {
     alignSelf: 'flex-start',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 6,
@@ -584,7 +584,7 @@ const styles = StyleSheet.create({
   categoryText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: '#000000',
   },
   deleteIcon: {
     position: 'absolute',
@@ -613,7 +613,7 @@ const styles = StyleSheet.create({
   },
   emptySubtitle: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
   },
   emptyFilterContainer: {
@@ -624,7 +624,7 @@ const styles = StyleSheet.create({
   },
   emptyFilterText: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
     marginTop: 16,
     textAlign: 'center',
   },

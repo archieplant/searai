@@ -149,7 +149,7 @@ export default function DiscoverScreen() {
             <Ionicons
               name={isSaving ? "hourglass-outline" : "bookmark-outline"}
               size={16}
-              color="#1C1C1C"
+              color="#000000"
             />
             <Text style={styles.saveButtonText}>
               {isSaving ? 'Saving...' : 'Save'}
@@ -192,7 +192,7 @@ export default function DiscoverScreen() {
   if (isLoading && !isRefreshing) {
     return (
       <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color="#9FE870" />
+        <ActivityIndicator size="large" color="#A4E900" />
         <Text style={styles.loadingText}>Loading recipes...</Text>
       </View>
     );
@@ -215,13 +215,13 @@ export default function DiscoverScreen() {
           <RefreshControl
             refreshing={isRefreshing}
             onRefresh={onRefresh}
-            tintColor="#9FE870"
+            tintColor="#A4E900"
           />
         }
       >
         {communityRecipes.length === 0 ? (
           <View style={styles.emptyContainer}>
-            <Ionicons name="compass-outline" size={64} color="#666666" />
+            <Ionicons name="compass-outline" size={64} color="#636366" />
             <Text style={styles.emptyTitle}>No Community Recipes Yet!</Text>
             <Text style={styles.emptySubtitle}>
               Share your recipes to get started
@@ -238,24 +238,24 @@ export default function DiscoverScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   centerContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   loadingText: {
     marginTop: 16,
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   header: {
     paddingHorizontal: 20,
     paddingTop: 80,
     paddingBottom: 20,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   headerTitle: {
     fontSize: 28,
@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
   },
   headerSubtitle: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   scrollView: {
     flex: 1,
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
   },
   recipeCard: {
     flex: 1,
-    backgroundColor: '#252525',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     overflow: 'hidden',
   },
@@ -295,12 +295,12 @@ const styles = StyleSheet.create({
   recipeImage: {
     width: '100%',
     aspectRatio: 1.2,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
   },
   imagePlaceholder: {
     width: '100%',
     aspectRatio: 1.2,
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     alignSelf: 'flex-start',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 6,
@@ -331,7 +331,7 @@ const styles = StyleSheet.create({
   saveButtonText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: '#000000',
   },
   emptyContainer: {
     flex: 1,
@@ -350,7 +350,7 @@ const styles = StyleSheet.create({
   },
   emptySubtitle: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
   },
 });

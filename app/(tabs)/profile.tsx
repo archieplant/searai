@@ -284,7 +284,7 @@ export default function ProfileScreen() {
             </View>
             <Text style={styles.userEmail}>{userEmail || 'Loading...'}</Text>
           </View>
-          <Ionicons name="chevron-forward" size={20} color="#666666" />
+          <Ionicons name="chevron-forward" size={20} color="#636366" />
         </TouchableOpacity>
 
         {/* Stats Widgets */}
@@ -309,20 +309,20 @@ export default function ProfileScreen() {
           <View style={styles.card}>
             <TouchableOpacity style={styles.menuItem} onPress={handleEditProfile} activeOpacity={0.7}>
               <View style={styles.menuLeft}>
-                <Ionicons name="person-outline" size={22} color="#9FE870" />
+                <Ionicons name="person-outline" size={22} color="#A4E900" />
                 <Text style={styles.menuLabel}>Personal Details</Text>
               </View>
-              <Ionicons name="chevron-forward" size={20} color="#666666" />
+              <Ionicons name="chevron-forward" size={20} color="#636366" />
             </TouchableOpacity>
 
             <View style={styles.menuDivider} />
 
             <TouchableOpacity style={styles.menuItem} onPress={handleDietaryPreferences} activeOpacity={0.7}>
               <View style={styles.menuLeft}>
-                <Ionicons name="restaurant-outline" size={22} color="#9FE870" />
+                <Ionicons name="restaurant-outline" size={22} color="#A4E900" />
                 <Text style={styles.menuLabel}>Dietary Preferences</Text>
               </View>
-              <Ionicons name="chevron-forward" size={20} color="#666666" />
+              <Ionicons name="chevron-forward" size={20} color="#636366" />
             </TouchableOpacity>
 
             {!isPremium && (
@@ -330,10 +330,10 @@ export default function ProfileScreen() {
                 <View style={styles.menuDivider} />
                 <TouchableOpacity style={styles.menuItem} onPress={handleUpgradePress} activeOpacity={0.7}>
                   <View style={styles.menuLeft}>
-                    <Ionicons name="star-outline" size={22} color="#9FE870" />
+                    <Ionicons name="star-outline" size={22} color="#A4E900" />
                     <Text style={styles.menuLabel}>Upgrade to Premium</Text>
                   </View>
-                  <Ionicons name="chevron-forward" size={20} color="#666666" />
+                  <Ionicons name="chevron-forward" size={20} color="#636366" />
                 </TouchableOpacity>
               </>
             )}
@@ -367,13 +367,13 @@ export default function ProfileScreen() {
           <View style={styles.card}>
             <View style={styles.menuItem}>
               <View style={styles.menuLeft}>
-                <Ionicons name="notifications-outline" size={22} color="#9FE870" />
+                <Ionicons name="notifications-outline" size={22} color="#A4E900" />
                 <Text style={styles.menuLabel}>Notifications</Text>
               </View>
               <Switch
                 value={notificationsEnabled}
                 onValueChange={setNotificationsEnabled}
-                trackColor={{ false: '#3C3C3C', true: '#9FE870' }}
+                trackColor={{ false: '#2C2C2E', true: '#A4E900' }}
                 thumbColor="#FFFFFF"
               />
             </View>
@@ -390,10 +390,10 @@ export default function ProfileScreen() {
               activeOpacity={0.7}
             >
               <View style={styles.menuLeft}>
-                <Ionicons name="shield-checkmark-outline" size={22} color="#9FE870" />
+                <Ionicons name="shield-checkmark-outline" size={22} color="#A4E900" />
                 <Text style={styles.menuLabel}>Privacy Policy</Text>
               </View>
-              <Ionicons name="chevron-forward" size={20} color="#AAAAAA" />
+              <Ionicons name="chevron-forward" size={20} color="#98989D" />
             </TouchableOpacity>
 
             <View style={styles.divider} />
@@ -404,10 +404,10 @@ export default function ProfileScreen() {
               activeOpacity={0.7}
             >
               <View style={styles.menuLeft}>
-                <Ionicons name="document-text-outline" size={22} color="#9FE870" />
+                <Ionicons name="document-text-outline" size={22} color="#A4E900" />
                 <Text style={styles.menuLabel}>Terms of Service</Text>
               </View>
-              <Ionicons name="chevron-forward" size={20} color="#AAAAAA" />
+              <Ionicons name="chevron-forward" size={20} color="#98989D" />
             </TouchableOpacity>
 
             <View style={styles.divider} />
@@ -418,10 +418,10 @@ export default function ProfileScreen() {
               activeOpacity={0.7}
             >
               <View style={styles.menuLeft}>
-                <Ionicons name="people-outline" size={22} color="#9FE870" />
+                <Ionicons name="people-outline" size={22} color="#A4E900" />
                 <Text style={styles.menuLabel}>Community Guidelines</Text>
               </View>
-              <Ionicons name="chevron-forward" size={20} color="#AAAAAA" />
+              <Ionicons name="chevron-forward" size={20} color="#98989D" />
             </TouchableOpacity>
           </View>
         </View>
@@ -448,7 +448,7 @@ export default function ProfileScreen() {
               value={allergiesInput}
               onChangeText={setAllergiesInput}
               placeholder="e.g., nuts, shellfish, dairy"
-              placeholderTextColor="#666666"
+              placeholderTextColor="#636366"
               multiline
               autoFocus
             />
@@ -490,7 +490,7 @@ export default function ProfileScreen() {
               value={dislikesInput}
               onChangeText={setDislikesInput}
               placeholder="e.g., olives, mushrooms, onions"
-              placeholderTextColor="#666666"
+              placeholderTextColor="#636366"
               multiline
               autoFocus
             />
@@ -536,7 +536,7 @@ export default function ProfileScreen() {
                   activeOpacity={0.7}
                 >
                   <Text style={[styles.dietTypeText, dietType === type && styles.dietTypeTextSelected]}>{type}</Text>
-                  {dietType === type && <Ionicons name="checkmark-circle" size={24} color="#9FE870" />}
+                  {dietType === type && <Ionicons name="checkmark-circle" size={24} color="#A4E900" />}
                 </TouchableOpacity>
               ))}
             </View>
@@ -550,7 +550,7 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   header: {
     paddingHorizontal: 20,
@@ -569,7 +569,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   profileCard: {
-    backgroundColor: '#252525',
+    backgroundColor: '#1C1C1E',
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.1)',
     borderRadius: 16,
@@ -589,7 +589,7 @@ const styles = StyleSheet.create({
   },
   statWidget: {
     flex: 1,
-    backgroundColor: '#252525',
+    backgroundColor: '#1C1C1E',
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.1)',
     borderRadius: 16,
@@ -600,13 +600,13 @@ const styles = StyleSheet.create({
   statWidgetNumber: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#9FE870',
+    color: '#A4E900',
     marginBottom: 6,
     textAlign: 'center',
   },
   statWidgetLabel: {
     fontSize: 11,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
     fontWeight: '500',
   },
@@ -632,12 +632,12 @@ const styles = StyleSheet.create({
   },
   userEmail: {
     fontSize: 13,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   premiumBadgeSmall: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 8,
@@ -653,7 +653,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.08)',
   },
   card: {
-    backgroundColor: '#252525',
+    backgroundColor: '#1C1C1E',
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.1)',
     borderRadius: 16,
@@ -676,13 +676,13 @@ const styles = StyleSheet.create({
   statNumber: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#9FE870',
+    color: '#A4E900',
     marginBottom: 4,
     textAlign: 'center',
   },
   statLabel: {
     fontSize: 12,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
   },
   section: {
@@ -730,7 +730,7 @@ const styles = StyleSheet.create({
   premiumBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 12,
@@ -743,7 +743,7 @@ const styles = StyleSheet.create({
   },
   premiumDescription: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
     lineHeight: 20,
     marginBottom: 16,
   },
@@ -754,7 +754,7 @@ const styles = StyleSheet.create({
   cancelButtonText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#9FE870',
+    color: '#A4E900',
   },
   signOutButton: {
     backgroundColor: 'rgba(255, 255, 255, 0.05)',
@@ -778,7 +778,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   modalContent: {
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     padding: 24,
@@ -797,11 +797,11 @@ const styles = StyleSheet.create({
   },
   modalSubtitle: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
     marginBottom: 20,
   },
   modalInput: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
@@ -816,7 +816,7 @@ const styles = StyleSheet.create({
   },
   currentChipsLabel: {
     fontSize: 12,
-    color: '#AAAAAA',
+    color: '#98989D',
     marginBottom: 8,
   },
   chipsContainer: {
@@ -827,7 +827,7 @@ const styles = StyleSheet.create({
   chip: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
@@ -835,11 +835,11 @@ const styles = StyleSheet.create({
   },
   chipText: {
     fontSize: 14,
-    color: '#1C1C1C',
+    color: '#000000',
     fontWeight: '600',
   },
   modalButton: {
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingVertical: 16,
     borderRadius: 12,
     alignItems: 'center',
@@ -848,7 +848,7 @@ const styles = StyleSheet.create({
   modalButtonText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#1C1C1C',
+    color: '#000000',
   },
   dietTypeOptions: {
     gap: 12,
@@ -859,14 +859,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     borderRadius: 12,
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.08)',
   },
   dietTypeOptionSelected: {
-    borderColor: '#9FE870',
-    backgroundColor: 'rgba(159, 232, 112, 0.1)',
+    borderColor: '#A4E900',
+    backgroundColor: 'rgba(164, 233, 0, 0.1)',
   },
   dietTypeText: {
     fontSize: 16,
@@ -874,7 +874,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   dietTypeTextSelected: {
-    color: '#9FE870',
+    color: '#A4E900',
     fontWeight: '600',
   },
 });

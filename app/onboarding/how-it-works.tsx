@@ -14,7 +14,7 @@ function Step({ icon, number, title, description }: StepProps) {
   return (
     <View style={styles.step}>
       <View style={styles.stepIconContainer}>
-        <Ionicons name={icon} size={32} color="#9FE870" />
+        <Ionicons name={icon} size={32} color="#A4E900" />
       </View>
       <View style={styles.stepContent}>
         <Text style={styles.stepNumber}>{number}</Text>
@@ -94,7 +94,7 @@ export default function OnboardingHowItWorks() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     paddingHorizontal: 32,
     paddingTop: 60,
     paddingBottom: 40,
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
     marginBottom: 40,
   },
   stepsContainer: {
@@ -126,12 +126,12 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 16,
     borderWidth: 2,
-    borderColor: '#9FE870',
+    borderColor: '#A4E900',
   },
   stepContent: {
     flex: 1,
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   stepNumber: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#9FE870',
+    color: '#A4E900',
     marginBottom: 4,
   },
   stepTitle: {
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   stepDescription: {
     fontSize: 14,
     lineHeight: 20,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   spacer: {
     flex: 1,
@@ -161,18 +161,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingVertical: 16,
     paddingHorizontal: 32,
     borderRadius: 12,
-    shadowColor: '#9FE870',
+    shadowColor: '#A4E900',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 6,
   },
   nextButtonText: {
-    color: '#1C1C1C',
+    color: '#000000',
     fontSize: 18,
     fontWeight: '700',
     marginRight: 8,

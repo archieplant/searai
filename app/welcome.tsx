@@ -499,7 +499,7 @@ function HowItWorksContent({ onNext }: { onNext: () => void }) {
         activeOpacity={0.8}
       >
         <Text style={styles.nextButtonText}>Next</Text>
-        <Ionicons name="arrow-forward" size={20} color="#1C1C1C" />
+        <Ionicons name="arrow-forward" size={20} color="#000000" />
       </TouchableOpacity>
     </View>
   );
@@ -509,7 +509,7 @@ function Step({ icon, number, title, description }: { icon: keyof typeof Ionicon
   return (
     <View style={styles.step}>
       <View style={styles.stepIconContainer}>
-        <Ionicons name={icon} size={28} color="#9FE870" />
+        <Ionicons name={icon} size={28} color="#A4E900" />
       </View>
       <View style={styles.stepContent}>
         <Text style={styles.stepNumber}>{number}</Text>
@@ -548,7 +548,7 @@ function PersonalInfoContent({
         <TextInput
           style={styles.input}
           placeholder="Enter your first name"
-          placeholderTextColor="#666666"
+          placeholderTextColor="#636366"
           value={firstName}
           onChangeText={setFirstName}
           autoCapitalize="words"
@@ -561,7 +561,7 @@ function PersonalInfoContent({
         <TextInput
           style={styles.input}
           placeholder="Enter your last name"
-          placeholderTextColor="#666666"
+          placeholderTextColor="#636366"
           value={lastName}
           onChangeText={setLastName}
           autoCapitalize="words"
@@ -605,7 +605,7 @@ function PersonalInfoContent({
           ]}>
             {referralSource}
           </Text>
-          <Ionicons name="chevron-down" size={20} color="#9FE870" />
+          <Ionicons name="chevron-down" size={20} color="#A4E900" />
         </TouchableOpacity>
       </View>
 
@@ -615,7 +615,7 @@ function PersonalInfoContent({
         activeOpacity={0.8}
       >
         <Text style={styles.nextButtonText}>Next</Text>
-        <Ionicons name="arrow-forward" size={20} color="#1C1C1C" />
+        <Ionicons name="arrow-forward" size={20} color="#000000" />
       </TouchableOpacity>
     </View>
   );
@@ -650,7 +650,7 @@ function PreferencesContent({
         <TextInput
           style={styles.input}
           placeholder="e.g., peanuts, shellfish, dairy"
-          placeholderTextColor="#666666"
+          placeholderTextColor="#636366"
           value={allergiesInput}
           onChangeText={setAllergiesInput}
           autoCapitalize="none"
@@ -664,7 +664,7 @@ function PreferencesContent({
         <TextInput
           style={styles.input}
           placeholder="e.g., mushrooms, cilantro, olives"
-          placeholderTextColor="#666666"
+          placeholderTextColor="#636366"
           value={dislikesInput}
           onChangeText={setDislikesInput}
           autoCapitalize="none"
@@ -704,7 +704,7 @@ function PreferencesContent({
         activeOpacity={0.8}
       >
         <Text style={styles.nextButtonText}>Continue</Text>
-        <Ionicons name="arrow-forward" size={20} color="#1C1C1C" />
+        <Ionicons name="arrow-forward" size={20} color="#000000" />
       </TouchableOpacity>
     </View>
   );
@@ -780,13 +780,13 @@ function SignupContent({
           <Ionicons
             name="mail-outline"
             size={20}
-            color="#9FE870"
+            color="#A4E900"
             style={styles.inputIconLeft}
           />
           <TextInput
             style={styles.inputWithPadding}
             placeholder="your.email@example.com"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#636366"
             value={email}
             onChangeText={setEmail}
             keyboardType="email-address"
@@ -805,13 +805,13 @@ function SignupContent({
           <Ionicons
             name="lock-closed-outline"
             size={20}
-            color="#9FE870"
+            color="#A4E900"
             style={styles.inputIconLeft}
           />
           <TextInput
             style={styles.inputWithPadding}
             placeholder="At least 6 characters"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#636366"
             value={password}
             onChangeText={setPassword}
             secureTextEntry={!showPassword}
@@ -828,7 +828,7 @@ function SignupContent({
             <Ionicons
               name={showPassword ? 'eye-off-outline' : 'eye-outline'}
               size={20}
-              color="#9FE870"
+              color="#A4E900"
             />
           </TouchableOpacity>
         </View>
@@ -841,13 +841,13 @@ function SignupContent({
           <Ionicons
             name="lock-closed-outline"
             size={20}
-            color="#9FE870"
+            color="#A4E900"
             style={styles.inputIconLeft}
           />
           <TextInput
             style={styles.inputWithPadding}
             placeholder="Re-enter your password"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#636366"
             value={confirmPassword}
             onChangeText={setConfirmPassword}
             secureTextEntry={!showConfirmPassword}
@@ -864,7 +864,7 @@ function SignupContent({
             <Ionicons
               name={showConfirmPassword ? 'eye-off-outline' : 'eye-outline'}
               size={20}
-              color="#9FE870"
+              color="#A4E900"
             />
           </TouchableOpacity>
         </View>
@@ -878,7 +878,7 @@ function SignupContent({
         activeOpacity={0.8}
       >
         {isLoading ? (
-          <ActivityIndicator size="small" color="#1C1C1C" />
+          <ActivityIndicator size="small" color="#000000" />
         ) : (
           <Text style={styles.nextButtonText}>Sign Up</Text>
         )}
@@ -929,13 +929,13 @@ function LoginContent({
           <Ionicons
             name="mail-outline"
             size={20}
-            color="#9FE870"
+            color="#A4E900"
             style={styles.inputIconLeft}
           />
           <TextInput
             style={styles.inputWithPadding}
             placeholder="your.email@example.com"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#636366"
             value={email}
             onChangeText={setEmail}
             keyboardType="email-address"
@@ -954,13 +954,13 @@ function LoginContent({
           <Ionicons
             name="lock-closed-outline"
             size={20}
-            color="#9FE870"
+            color="#A4E900"
             style={styles.inputIconLeft}
           />
           <TextInput
             style={styles.inputWithPadding}
             placeholder="Enter your password"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#636366"
             value={password}
             onChangeText={setPassword}
             secureTextEntry={!showPassword}
@@ -977,7 +977,7 @@ function LoginContent({
             <Ionicons
               name={showPassword ? 'eye-off-outline' : 'eye-outline'}
               size={20}
-              color="#9FE870"
+              color="#A4E900"
             />
           </TouchableOpacity>
         </View>
@@ -991,7 +991,7 @@ function LoginContent({
         activeOpacity={0.8}
       >
         {isLoading ? (
-          <ActivityIndicator size="small" color="#1C1C1C" />
+          <ActivityIndicator size="small" color="#000000" />
         ) : (
           <Text style={styles.nextButtonText}>Log In</Text>
         )}
@@ -1011,7 +1011,7 @@ function LoginContent({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   backgroundGradient: {
     flex: 1,
@@ -1060,11 +1060,11 @@ const styles = StyleSheet.create({
     opacity: 0.9,
   },
   getStartedButton: {
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingVertical: 18,
     paddingHorizontal: 60,
     borderRadius: 30,
-    shadowColor: '#9FE870',
+    shadowColor: '#A4E900',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -1073,7 +1073,7 @@ const styles = StyleSheet.create({
   getStartedText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#1C1C1C',
+    color: '#000000',
     letterSpacing: 0.5,
   },
   signInLinkContainer: {
@@ -1089,7 +1089,7 @@ const styles = StyleSheet.create({
   signInLink: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#9FE870',
+    color: '#A4E900',
     textDecorationLine: 'underline',
   },
   // Modal styles
@@ -1128,7 +1128,7 @@ const styles = StyleSheet.create({
   },
   skipButtonText: {
     fontSize: 16,
-    color: '#9FE870',
+    color: '#A4E900',
     fontWeight: '600',
   },
   scrollView: {
@@ -1151,7 +1151,7 @@ const styles = StyleSheet.create({
   },
   stepSubtitle: {
     fontSize: 15,
-    color: '#AAAAAA',
+    color: '#98989D',
     marginBottom: 24,
   },
   // How it works styles
@@ -1167,12 +1167,12 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 16,
     borderWidth: 2,
-    borderColor: '#9FE870',
+    borderColor: '#A4E900',
   },
   stepContent: {
     flex: 1,
@@ -1181,7 +1181,7 @@ const styles = StyleSheet.create({
   stepNumber: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#9FE870',
+    color: '#A4E900',
     marginBottom: 4,
   },
   stepItemTitle: {
@@ -1193,7 +1193,7 @@ const styles = StyleSheet.create({
   stepDescription: {
     fontSize: 13,
     lineHeight: 18,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   // Form styles
   formSection: {
@@ -1207,24 +1207,24 @@ const styles = StyleSheet.create({
   },
   hint: {
     fontSize: 12,
-    color: '#AAAAAA',
+    color: '#98989D',
     marginBottom: 8,
   },
   input: {
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     paddingVertical: 12,
     paddingHorizontal: 16,
     fontSize: 15,
     color: '#FFFFFF',
     borderWidth: 1,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
   },
   pickerButton: {
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
     paddingVertical: 12,
     paddingHorizontal: 16,
     flexDirection: 'row',
@@ -1238,7 +1238,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   pickerPlaceholder: {
-    color: '#666666',
+    color: '#636366',
   },
   dietTypeContainer: {
     flexDirection: 'row',
@@ -1249,31 +1249,31 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 14,
     borderRadius: 16,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderWidth: 2,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
   },
   dietTypeChipSelected: {
-    backgroundColor: '#9FE870',
-    borderColor: '#9FE870',
+    backgroundColor: '#A4E900',
+    borderColor: '#A4E900',
   },
   dietTypeChipText: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   dietTypeChipTextSelected: {
-    color: '#1C1C1C',
+    color: '#000000',
   },
   nextButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingVertical: 14,
     paddingHorizontal: 32,
     borderRadius: 12,
-    shadowColor: '#9FE870',
+    shadowColor: '#A4E900',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -1281,7 +1281,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   nextButtonText: {
-    color: '#1C1C1C',
+    color: '#000000',
     fontSize: 16,
     fontWeight: '700',
     marginRight: 8,
@@ -1293,10 +1293,10 @@ const styles = StyleSheet.create({
   inputWithIcon: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
     paddingHorizontal: 16,
     height: 50,
   },
@@ -1321,11 +1321,11 @@ const styles = StyleSheet.create({
   },
   loginPrompt: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   loginLink: {
     fontSize: 14,
-    color: '#9FE870',
+    color: '#A4E900',
     fontWeight: '600',
   },
 });

@@ -62,7 +62,7 @@ export function ContentPolicyModal({ visible, onAccept, onDecline }: ContentPoli
         <View style={styles.modalContainer}>
           {/* Header */}
           <View style={styles.header}>
-            <Ionicons name="people-outline" size={32} color="#9FE870" />
+            <Ionicons name="people-outline" size={32} color="#A4E900" />
             <Text style={styles.title}>Community Guidelines</Text>
             <Text style={styles.subtitle}>
               Before sharing to the community, please review our guidelines
@@ -97,7 +97,7 @@ export function ContentPolicyModal({ visible, onAccept, onDecline }: ContentPoli
 
             <TouchableOpacity onPress={handleViewFullPolicy} style={styles.linkButton}>
               <Text style={styles.linkText}>View Full Community Guidelines</Text>
-              <Ionicons name="open-outline" size={16} color="#9FE870" />
+              <Ionicons name="open-outline" size={16} color="#A4E900" />
             </TouchableOpacity>
           </ScrollView>
 
@@ -108,7 +108,7 @@ export function ContentPolicyModal({ visible, onAccept, onDecline }: ContentPoli
             activeOpacity={0.7}
           >
             <View style={[styles.checkbox, accepted && styles.checkboxChecked]}>
-              {accepted && <Ionicons name="checkmark" size={18} color="#1C1C1C" />}
+              {accepted && <Ionicons name="checkmark" size={18} color="#000000" />}
             </View>
             <Text style={styles.checkboxLabel}>
               I agree to follow the Community Guidelines
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   modalContainer: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     borderRadius: 20,
     width: '100%',
     maxWidth: 500,
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
   },
   content: {
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: 14,
-    color: '#9FE870',
+    color: '#A4E900',
     fontWeight: '600',
     textDecorationLine: 'underline',
   },
@@ -226,8 +226,8 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   checkboxChecked: {
-    backgroundColor: '#9FE870',
-    borderColor: '#9FE870',
+    backgroundColor: '#A4E900',
+    borderColor: '#A4E900',
   },
   checkboxLabel: {
     flex: 1,
@@ -256,12 +256,12 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   acceptButton: {
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
   },
   acceptButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: '#000000',
   },
   buttonDisabled: {
     opacity: 0.5,

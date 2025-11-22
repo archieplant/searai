@@ -13,7 +13,7 @@ import {
 import { useRouter, Stack } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-import { analyzeRecipe } from '@/src/services/openai';
+import { analyzeRecipeViaBackend } from '@/src/services/backend-api';
 import { getCurrentUser } from '@/src/services/supabase';
 import { checkUserLimits, incrementAnalysisCount } from '@/src/services/subscription';
 import AnalysisLoadingScreen from '@/src/components/AnalysisLoadingScreen';
@@ -115,9 +115,9 @@ export default function UploadScreen() {
         return;
       }
 
-      // Perform recipe analysis
-      console.log('Starting recipe analysis...');
-      const recipeData = await analyzeRecipe(recipeText, imageUri || undefined);
+      // Perform recipe analysis via secure backend
+      console.log('Starting recipe analysis via backend...');
+      const recipeData = await analyzeRecipeViaBackend(recipeText, imageUri || undefined);
       console.log('Recipe analysis complete:', recipeData.dishName);
 
       // Increment analysis count
@@ -183,7 +183,7 @@ export default function UploadScreen() {
             {imageUri ? (
               <View style={styles.imagePreviewContainer}>
                 <View style={styles.imagePreview}>
-                  <Ionicons name="image" size={64} color="#9FE870" />
+                  <Ionicons name="image" size={64} color="#A4E900" />
                   <Text style={styles.imagePreviewText}>Photo selected</Text>
                 </View>
                 <TouchableOpacity
@@ -200,7 +200,7 @@ export default function UploadScreen() {
                   onPress={handleTakePhoto}
                   activeOpacity={0.8}
                 >
-                  <Ionicons name="camera" size={32} color="#9FE870" />
+                  <Ionicons name="camera" size={32} color="#A4E900" />
                   <Text style={styles.uploadButtonText}>Take Photo</Text>
                 </TouchableOpacity>
 
@@ -209,7 +209,7 @@ export default function UploadScreen() {
                   onPress={handleChoosePhoto}
                   activeOpacity={0.8}
                 >
-                  <Ionicons name="images" size={32} color="#9FE870" />
+                  <Ionicons name="images" size={32} color="#A4E900" />
                   <Text style={styles.uploadButtonText}>Choose Photo</Text>
                 </TouchableOpacity>
               </View>
@@ -235,7 +235,7 @@ export default function UploadScreen() {
               multiline
               numberOfLines={10}
               placeholder="Paste your recipe here..."
-              placeholderTextColor="#666666"
+              placeholderTextColor="#636366"
               value={recipeText}
               onChangeText={setRecipeText}
               textAlignVertical="top"
@@ -252,7 +252,7 @@ export default function UploadScreen() {
             activeOpacity={0.8}
             disabled={!imageUri && !recipeText.trim()}
           >
-            <Ionicons name="flash" size={20} color="#1C1C1C" style={styles.analyseIcon} />
+            <Ionicons name="flash" size={20} color="#000000" style={styles.analyseIcon} />
             <Text style={styles.analyseButtonText}>Analyse Recipe</Text>
           </TouchableOpacity>
         </ScrollView>
@@ -264,7 +264,7 @@ export default function UploadScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   header: {
     flexDirection: 'row',
@@ -273,9 +273,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 60,
     paddingBottom: 16,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     borderBottomWidth: 1,
-    borderBottomColor: '#2C2C2C',
+    borderBottomColor: '#1C1C1E',
   },
   backButton: {
     padding: 8,
@@ -305,12 +305,12 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#9FE870',
+    color: '#A4E900',
     marginBottom: 8,
   },
   sectionSubtitle: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
     marginBottom: 20,
   },
   uploadButtons: {
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
   },
   uploadButton: {
     flex: 1,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     padding: 24,
     alignItems: 'center',
@@ -336,24 +336,24 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   imagePreview: {
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     padding: 32,
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#9FE870',
+    borderColor: '#A4E900',
   },
   imagePreviewText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#9FE870',
+    color: '#A4E900',
     marginTop: 12,
   },
   removeButton: {
     position: 'absolute',
     top: -8,
     right: -8,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     borderRadius: 12,
   },
   divider: {
@@ -369,11 +369,11 @@ const styles = StyleSheet.create({
   dividerText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#9FE870',
+    color: '#A4E900',
     marginHorizontal: 16,
   },
   textInput: {
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
@@ -383,14 +383,14 @@ const styles = StyleSheet.create({
     borderColor: '#3C3C3C',
   },
   analyseButton: {
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingVertical: 18,
     paddingHorizontal: 32,
     borderRadius: 12,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#9FE870',
+    shadowColor: '#A4E900',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -404,7 +404,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   analyseButtonText: {
-    color: '#1C1C1C',
+    color: '#000000',
     fontSize: 18,
     fontWeight: '700',
   },

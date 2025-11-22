@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     left: 40,
     right: 40,
     height: 16,
-    backgroundColor: '#3C3C3C',
+    backgroundColor: '#2C2C2E',
     borderRadius: 8,
   },
   pointsContainer: {
@@ -100,9 +100,9 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderWidth: 3,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -110,9 +110,9 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   pointActive: {
-    backgroundColor: '#9FE870',
-    borderColor: '#9FE870',
-    shadowColor: '#9FE870',
+    backgroundColor: '#A4E900',
+    borderColor: '#A4E900',
+    shadowColor: '#A4E900',
     shadowOpacity: 0.4,
     shadowRadius: 8,
     elevation: 6,
@@ -129,12 +129,12 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 13,
-    color: '#AAAAAA',
+    color: '#98989D',
     textAlign: 'center',
     lineHeight: 17,
   },
   labelActive: {
-    color: '#9FE870',
+    color: '#A4E900',
     fontWeight: '700',
   },
 });

@@ -129,7 +129,7 @@ export default function OnboardingPreferences() {
           <TextInput
             style={styles.input}
             placeholder="e.g., peanuts, shellfish, dairy"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#636366"
             value={allergiesInput}
             onChangeText={setAllergiesInput}
             autoCapitalize="none"
@@ -144,7 +144,7 @@ export default function OnboardingPreferences() {
           <TextInput
             style={styles.input}
             placeholder="e.g., mushrooms, cilantro, olives"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#636366"
             value={dislikesInput}
             onChangeText={setDislikesInput}
             autoCapitalize="none"
@@ -198,7 +198,7 @@ export default function OnboardingPreferences() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
   },
   scrollView: {
     flex: 1,
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
   },
   skipButtonText: {
     fontSize: 16,
-    color: '#9FE870',
+    color: '#A4E900',
     fontWeight: '600',
   },
   title: {
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
-    color: '#AAAAAA',
+    color: '#98989D',
     marginBottom: 32,
   },
   section: {
@@ -247,18 +247,18 @@ const styles = StyleSheet.create({
   },
   sectionHint: {
     fontSize: 14,
-    color: '#AAAAAA',
+    color: '#98989D',
     marginBottom: 12,
   },
   input: {
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderRadius: 12,
     paddingVertical: 14,
     paddingHorizontal: 16,
     fontSize: 16,
     color: '#FFFFFF',
     borderWidth: 2,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
   },
   dietTypeContainer: {
     flexDirection: 'row',
@@ -269,45 +269,45 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 16,
     borderRadius: 20,
-    backgroundColor: '#2C2C2C',
+    backgroundColor: '#1C1C1E',
     borderWidth: 2,
-    borderColor: '#3C3C3C',
+    borderColor: '#2C2C2E',
   },
   dietTypeChipSelected: {
-    backgroundColor: '#9FE870',
-    borderColor: '#9FE870',
+    backgroundColor: '#A4E900',
+    borderColor: '#A4E900',
   },
   dietTypeChipText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#AAAAAA',
+    color: '#98989D',
   },
   dietTypeChipTextSelected: {
-    color: '#1C1C1C',
+    color: '#000000',
   },
   buttonContainer: {
     paddingHorizontal: 32,
     paddingVertical: 24,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#000000',
     borderTopWidth: 1,
-    borderTopColor: '#2C2C2C',
+    borderTopColor: '#1C1C1E',
   },
   continueButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#9FE870',
+    backgroundColor: '#A4E900',
     paddingVertical: 16,
     paddingHorizontal: 32,
     borderRadius: 12,
-    shadowColor: '#9FE870',
+    shadowColor: '#A4E900',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 6,
   },
   continueButtonText: {
-    color: '#1C1C1C',
+    color: '#000000',
     fontSize: 18,
     fontWeight: '700',
     marginRight: 8,
