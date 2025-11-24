@@ -74,6 +74,31 @@ serve(async (req) => {
       )
     }
 
+    // Rate limiting: Max 5 requests per minute per user
+    const oneMinuteAgo = new Date(Date.now() - 60000).toISOString()
+    const { count, error: countError } = await supabase
+      .from('recipe_analyses')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', user.id)
+      .gte('created_at', oneMinuteAgo)
+
+    if (countError) {
+      console.error('Rate limit check error:', countError)
+      // Continue anyway - don't block users if rate limit check fails
+    }
+
+    if (count && count >= 5) {
+      return new Response(
+        JSON.stringify({
+          error: 'Rate limit exceeded. Please wait a minute before trying again.'
+        }),
+        {
+          status: 429,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        }
+      )
+    }
+
     // Parse request body
     const body: RequestBody = await req.json()
     const { imageBase64, recipeText, preferences } = body
