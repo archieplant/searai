@@ -132,11 +132,6 @@ export default function ProfileScreen() {
     router.push('/profile/edit');
   };
 
-  const handleDietaryPreferences = () => {
-    // Show allergies modal for now (can be expanded to dedicated screen)
-    setShowAllergiesModal(true);
-  };
-
   const handleUpgradePress = () => {
     router.push('/paywall');
   };
@@ -317,10 +312,43 @@ export default function ProfileScreen() {
 
             <View style={styles.menuDivider} />
 
-            <TouchableOpacity style={styles.menuItem} onPress={handleDietaryPreferences} activeOpacity={0.7}>
+            <TouchableOpacity style={styles.menuItem} onPress={handleEditAllergies} activeOpacity={0.7}>
+              <View style={styles.menuLeft}>
+                <Ionicons name="alert-circle-outline" size={22} color="#A4E900" />
+                <View style={styles.menuLabelContainer}>
+                  <Text style={styles.menuLabel}>Allergies</Text>
+                  <Text style={styles.menuSubtext} numberOfLines={1}>
+                    {allergies.length > 0 ? allergies.join(', ') : 'None'}
+                  </Text>
+                </View>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color="#636366" />
+            </TouchableOpacity>
+
+            <View style={styles.menuDivider} />
+
+            <TouchableOpacity style={styles.menuItem} onPress={handleEditDislikes} activeOpacity={0.7}>
+              <View style={styles.menuLeft}>
+                <Ionicons name="close-circle-outline" size={22} color="#A4E900" />
+                <View style={styles.menuLabelContainer}>
+                  <Text style={styles.menuLabel}>Dislikes</Text>
+                  <Text style={styles.menuSubtext} numberOfLines={1}>
+                    {dislikes.length > 0 ? dislikes.join(', ') : 'None'}
+                  </Text>
+                </View>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color="#636366" />
+            </TouchableOpacity>
+
+            <View style={styles.menuDivider} />
+
+            <TouchableOpacity style={styles.menuItem} onPress={handleEditDietType} activeOpacity={0.7}>
               <View style={styles.menuLeft}>
                 <Ionicons name="restaurant-outline" size={22} color="#A4E900" />
-                <Text style={styles.menuLabel}>Dietary Preferences</Text>
+                <View style={styles.menuLabelContainer}>
+                  <Text style={styles.menuLabel}>Diet Type</Text>
+                  <Text style={styles.menuSubtext}>{dietType}</Text>
+                </View>
               </View>
               <Ionicons name="chevron-forward" size={20} color="#636366" />
             </TouchableOpacity>
@@ -707,11 +735,20 @@ const styles = StyleSheet.create({
     gap: 12,
     flex: 1,
   },
+  menuLabelContainer: {
+    flex: 1,
+    gap: 2,
+  },
   menuLabel: {
     fontSize: 16,
     color: '#FFFFFF',
     fontWeight: '500',
     lineHeight: 22,
+  },
+  menuSubtext: {
+    fontSize: 13,
+    color: '#636366',
+    lineHeight: 16,
   },
   menuDivider: {
     height: 1,
