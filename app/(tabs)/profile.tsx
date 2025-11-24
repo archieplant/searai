@@ -421,10 +421,10 @@ export default function ProfileScreen() {
                 <Ionicons name="shield-checkmark-outline" size={22} color="#A4E900" />
                 <Text style={styles.menuLabel}>Privacy Policy</Text>
               </View>
-              <Ionicons name="chevron-forward" size={20} color="#98989D" />
+              <Ionicons name="chevron-forward" size={20} color="#636366" />
             </TouchableOpacity>
 
-            <View style={styles.divider} />
+            <View style={styles.menuDivider} />
 
             <TouchableOpacity
               style={styles.menuItem}
@@ -435,10 +435,10 @@ export default function ProfileScreen() {
                 <Ionicons name="document-text-outline" size={22} color="#A4E900" />
                 <Text style={styles.menuLabel}>Terms of Service</Text>
               </View>
-              <Ionicons name="chevron-forward" size={20} color="#98989D" />
+              <Ionicons name="chevron-forward" size={20} color="#636366" />
             </TouchableOpacity>
 
-            <View style={styles.divider} />
+            <View style={styles.menuDivider} />
 
             <TouchableOpacity
               style={styles.menuItem}
@@ -449,7 +449,7 @@ export default function ProfileScreen() {
                 <Ionicons name="people-outline" size={22} color="#A4E900" />
                 <Text style={styles.menuLabel}>Community Guidelines</Text>
               </View>
-              <Ionicons name="chevron-forward" size={20} color="#98989D" />
+              <Ionicons name="chevron-forward" size={20} color="#636366" />
             </TouchableOpacity>
           </View>
         </View>
@@ -753,7 +753,6 @@ const styles = StyleSheet.create({
   menuDivider: {
     height: 1,
     backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    marginLeft: 50,
   },
   premiumContent: {
     padding: 20,
