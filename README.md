@@ -11,10 +11,10 @@ Recipe Killer AI transforms any recipe into simplified versions tailored to your
 - **AI Recipe Analysis**: Upload photos or paste recipes for GPT-4 Vision powered analysis
 - **5 Complexity Levels**: Get recipes from Level 1 (Ultra Simple) to Level 5 (Chef)
 - **Dietary Preferences**: Automatic substitutions for allergies, dislikes, and diet types
-- **Recipe Library**: Save unlimited recipes (Premium) or up to 10 (Free)
+- **Recipe Library**: Save unlimited recipes
 - **Recent Recipes**: Quick access to your last 5 analyzed recipes
 - **Profile Customization**: Choose from 5 avatar colors
-- **Premium Subscriptions**: Monthly (£3.99) or Annual (£39.99) plans via RevenueCat
+- **3-Day Free Trial**: Full access to all features, then £3.99/month or £39.99/year
 
 ## Tech Stack
 
@@ -182,7 +182,7 @@ See [SUPABASE_SCHEMA.md](./SUPABASE_SCHEMA.md) for complete database documentati
 **Key Tables:**
 - `user_profiles` - User information and preferences
 - `user_subscriptions` - RevenueCat subscription status
-- `recipe_analyses` - Usage tracking for free tier limits
+- `recipe_analyses` - Rate limiting tracking (5 requests/minute)
 - `saved_recipes` - User's saved recipe collection
 - `recent_recipes` - Last 5 analyzed recipes per user
 - `dietary_preferences` - User allergies, dislikes, diet type
@@ -197,24 +197,23 @@ See [SUPABASE_SCHEMA.md](./SUPABASE_SCHEMA.md) for complete database documentati
 2. Profile created with default avatar color
 3. Dietary preferences initialized
 4. RevenueCat user ID linked
-5. Free tier limits applied
+5. 3-day free trial starts automatically
 
 ### Recipe Analysis Flow
 1. User uploads photo or pastes text
 2. Image converted to base64 (if provided)
-3. Request sent to `analyze-recipe` Edge Function
+3. Request sent to `analyze-recipe` Edge Function (rate limited to 5/minute)
 4. Edge Function calls OpenAI GPT-4o with dietary preferences
 5. Response parsed into 5 complexity levels
 6. Recipe saved to recent_recipes
-7. Analysis count incremented (free tier check)
+7. User can analyze and save unlimited recipes
 
 ### Subscription Flow
-1. User taps "Upgrade to Premium"
-2. RevenueCat paywall displays offerings
-3. User completes purchase (App Store/Play Store)
-4. RevenueCat webhook updates `user_subscriptions`
-5. App refreshes subscription status
-6. Premium features unlocked
+1. New user signs up → Automatic 3-day free trial
+2. User starts trial → RevenueCat manages trial period
+3. After 3 days → Auto-converts to £3.99/month (unless cancelled)
+4. User can upgrade to annual (£39.99/year) anytime
+5. Cancellation managed through App Store/Play Store settings
 
 ## Security
 
@@ -250,11 +249,12 @@ See [SUPABASE_SCHEMA.md](./SUPABASE_SCHEMA.md) for complete database documentati
 - Pink: `#E74C9E`
 - Blue: `#45B7D1`
 
-## Free Tier Limits
+## Subscription Model
 
-- **Saved Recipes**: 10 recipes
-- **Monthly Analyses**: 20 recipes per month
-- **Premium**: Unlimited for both
+- **3-Day Free Trial**: Full access to all features
+- **After Trial**: £3.99/month or £39.99/year
+- **All Features Included**: Unlimited recipe analysis and saving
+- **Cancel Anytime**: Manage subscription in App Store/Play Store
 
 ## Testing
 

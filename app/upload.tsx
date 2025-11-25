@@ -15,7 +15,6 @@ import { Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { analyzeRecipeViaBackend } from '@/src/services/backend-api';
 import { getCurrentUser } from '@/src/services/supabase';
-import { checkUserLimits, incrementAnalysisCount } from '@/src/services/subscription';
 import AnalysisLoadingScreen from '@/src/components/AnalysisLoadingScreen';
 
 export default function UploadScreen() {
@@ -99,29 +98,10 @@ export default function UploadScreen() {
         return;
       }
 
-      const limits = await checkUserLimits(user.id);
-      console.log('User limits:', limits);
-
-      if (!limits.canAnalyse) {
-        setIsAnalysing(false);
-        Alert.alert(
-          'Analysis Limit Reached',
-          `You've reached the free limit of ${limits.maxMonthlyAnalyses} analyses this month. Upgrade to Premium for unlimited analyses!`,
-          [
-            { text: 'Maybe Later', style: 'cancel' },
-            { text: 'Upgrade', onPress: () => router.push('/paywall') }
-          ]
-        );
-        return;
-      }
-
       // Perform recipe analysis via secure backend
       console.log('Starting recipe analysis via backend...');
       const recipeData = await analyzeRecipeViaBackend(recipeText, imageUri || undefined);
       console.log('Recipe analysis complete:', recipeData.dishName);
-
-      // Increment analysis count
-      await incrementAnalysisCount(user.id);
 
       // Save to recent_recipes (with photo upload)
       const { addRecentRecipe } = await import('@/src/services/supabase');

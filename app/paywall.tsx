@@ -245,16 +245,16 @@ export default function PaywallScreen() {
         >
           {/* Title Section */}
           <View style={styles.titleSection}>
-            <Text style={styles.title}>Upgrade to Premium</Text>
-            <Text style={styles.subtitle}>Unlock unlimited recipes</Text>
+            <Text style={styles.title}>Start Your Free Trial</Text>
+            <Text style={styles.subtitle}>3 days free, then £3.99/month</Text>
           </View>
 
           {/* Benefits Section */}
           <View style={styles.benefitsSection}>
-            {renderBenefit('checkmark', 'Unlimited recipe analyses')}
-            {renderBenefit('checkmark', 'Unlimited saved recipes')}
-            {renderBenefit('checkmark', 'Priority support')}
-            {renderBenefit('checkmark', 'Ad-free experience')}
+            {renderBenefit('checkmark', 'Full access to all features')}
+            {renderBenefit('checkmark', 'Analyse unlimited recipes')}
+            {renderBenefit('checkmark', 'Save unlimited recipes')}
+            {renderBenefit('checkmark', 'Cancel anytime during trial')}
           </View>
 
           {/* Subscription Packages */}
@@ -290,7 +290,7 @@ export default function PaywallScreen() {
               {isPurchasing ? (
                 <ActivityIndicator size="small" color="#000000" />
               ) : (
-                <Text style={styles.continueButtonText}>Continue</Text>
+                <Text style={styles.continueButtonText}>Start Free Trial</Text>
               )}
             </TouchableOpacity>
           )}

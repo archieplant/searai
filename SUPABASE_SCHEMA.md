@@ -46,7 +46,7 @@ ALTER TABLE user_subscriptions ENABLE ROW LEVEL SECURITY;
 
 ### 2. recipe_analyses
 
-Tracks recipe analysis requests for usage limits (free tier: 20/month).
+Tracks recipe analysis requests for rate limiting only (5 requests/minute per user).
 
 **SQL to create table:**
 
@@ -71,7 +71,7 @@ ALTER TABLE recipe_analyses ENABLE ROW LEVEL SECURITY;
 - `created_at` (timestamptz, default NOW()) - When analysis was performed
 
 **Notes:**
-- Used to count monthly analyses for free tier limits
+- Used for rate limiting only (5 requests per minute per user)
 - No foreign key constraint to allow analysis tracking even if user is deleted
 - Records could be archived/deleted after X months for storage optimization
 
@@ -127,20 +127,13 @@ Already created in previous implementation. Stores user's saved recipes.
 
 ---
 
-## Free Tier Limits
+## Subscription Model
 
-Defined in `src/services/subscription.ts`:
-
-```typescript
-const FREE_TIER_LIMITS = {
-  MAX_SAVED_RECIPES: 10,
-  MAX_MONTHLY_ANALYSES: 20,
-};
-```
-
-- Free users can save up to 10 recipes
-- Free users can analyse up to 20 recipes per calendar month
-- Premium users have unlimited access to both
+- **3-Day Free Trial**: Full access to all features
+- **After Trial**: £3.99/month or £39.99/year
+- **All Features Included**: Unlimited recipe analysis and saving
+- **Cancel Anytime**: Manage subscription in App Store/Play Store
+- **Rate Limiting**: 5 recipe analyses per minute (prevents API abuse)
 
 ---
 

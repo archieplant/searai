@@ -6,7 +6,6 @@ import { BlurView } from 'expo-blur';
 import ComplexitySlider from '@/src/components/ComplexitySlider';
 import { RecipeAnalysis, RecipeVersion } from '@/src/services/openai';
 import { saveRecipe, getCurrentUser, shareRecipeToCommunity, hasAcceptedContentPolicy, recordContentPolicyConsent } from '@/src/services/supabase';
-import { checkUserLimits } from '@/src/services/subscription';
 import { ContentPolicyModal } from '@/src/components/ContentPolicyModal';
 import { LEGAL_VERSIONS } from '@/src/constants/legal';
 
@@ -75,22 +74,6 @@ export default function RecipeScreen() {
       if (!user) {
         setIsSaving(false);
         Alert.alert('Error', 'Please log in to save recipes');
-        return;
-      }
-
-      const limits = await checkUserLimits(user.id);
-      console.log('User limits:', limits);
-
-      if (!limits.canSave) {
-        setIsSaving(false);
-        Alert.alert(
-          'Save Limit Reached',
-          "You've reached the free limit for saved recipes. Upgrade to Premium for unlimited saves!",
-          [
-            { text: 'Maybe Later', style: 'cancel' },
-            { text: 'Upgrade', onPress: () => router.push('/paywall') }
-          ]
-        );
         return;
       }
 
