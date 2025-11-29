@@ -131,7 +131,7 @@ export default function RecipeScreen() {
       console.log('Recipe shared to community successfully');
       Alert.alert(
         'Shared!',
-        'Your recipe has been shared anonymously with the Recipe Killer community',
+        'Your recipe has been shared anonymously with the SearAI community',
         [
           { text: 'OK' }
         ]

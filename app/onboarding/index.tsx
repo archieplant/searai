@@ -18,7 +18,7 @@ export default function OnboardingWelcome() {
       </View>
 
       {/* Title */}
-      <Text style={styles.title}>Recipe Killer</Text>
+      <Text style={styles.title}>SearAI</Text>
 
       {/* Tagline */}
       <Text style={styles.tagline}>Simplify any recipe in seconds</Text>
@@ -26,7 +26,7 @@ export default function OnboardingWelcome() {
       {/* Description */}
       <Text style={styles.description}>
         Transform complex recipes into simple, easy-to-follow versions.{'\n'}
-        From "Recipe Killer" quick meals to detailed restaurant-quality dishes.
+        From quick meals to detailed restaurant-quality dishes.
       </Text>
 
       {/* Spacer */}

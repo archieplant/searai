@@ -319,7 +319,7 @@ export default function WelcomeScreen() {
           <View style={styles.overlay}>
             {/* Logo/Title */}
             <View style={styles.logoContainer}>
-              <Text style={styles.logo}>Recipe Killer</Text>
+              <Text style={styles.logo}>SearAI</Text>
             </View>
 
             {/* Tagline and CTA */}
@@ -751,7 +751,7 @@ function SignupContent({
   return (
     <View style={styles.stepContainer}>
       <Text style={styles.stepTitle}>Create Account</Text>
-      <Text style={styles.stepSubtitle}>Join Recipe Killer today</Text>
+      <Text style={styles.stepSubtitle}>Join SearAI today</Text>
 
       {/* Legal Consent Checkboxes */}
       <View style={styles.formSection}>

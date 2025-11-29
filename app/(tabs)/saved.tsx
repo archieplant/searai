@@ -14,7 +14,7 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { getSavedRecipes, SavedRecipe, deleteRecipe } from '@/src/services/supabase';
 
-const COMPLEXITY_LABELS = ['Recipe Killer', 'Simple', 'Average', 'Complex', 'Very Complex'];
+const COMPLEXITY_LABELS = ['Ultra Simple', 'Simple', 'Average', 'Complex', 'Very Complex'];
 
 export default function SavedScreen() {
   const router = useRouter();

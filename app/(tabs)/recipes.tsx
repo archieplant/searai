@@ -14,7 +14,7 @@ import { useRouter, useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { getSavedRecipes, SavedRecipe, getLibraryRecipes, LibraryRecipe, deleteRecipe } from '@/src/services/supabase';
 
-const COMPLEXITY_LABELS = ['Recipe Killer', 'Simple', 'Average', 'Complex', 'Very Complex'];
+const COMPLEXITY_LABELS = ['Ultra Simple', 'Simple', 'Average', 'Complex', 'Very Complex'];
 const CATEGORIES = ['All', 'Italian', 'Asian', 'American', 'Mediterranean', 'Vegetarian', 'Desserts'] as const;
 type Category = typeof CATEGORIES[number];
 
