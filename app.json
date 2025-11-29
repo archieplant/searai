@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "recipe-killer-ai",
-    "slug": "recipe-killer-ai",
+    "name": "SearAI",
+    "slug": "searai",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "recipekillerai",
+    "scheme": "searai",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {

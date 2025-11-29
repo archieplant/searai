@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides a comprehensive reference of all business rules, limits, constraints, and policies governing the Recipe Killer AI app. Use this as a quick reference when implementing features or reviewing test scenarios.
+This document provides a comprehensive reference of all business rules, limits, constraints, and policies governing the SearAI app. Use this as a quick reference when implementing features or reviewing test scenarios.
 
 ---
 

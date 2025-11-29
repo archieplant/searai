@@ -7,7 +7,7 @@
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
-        "bundleIdentifier": "com.archieplant.recipekillerai.dev"
+        "bundleIdentifier": "com.tcapdevs.searai.dev"
       },
       "android": {
         "gradleCommand": ":app:assembleDebug"
@@ -16,7 +16,7 @@
     "preview": {
       "distribution": "internal",
       "ios": {
-        "bundleIdentifier": "com.archieplant.recipekillerai.preview"
+        "bundleIdentifier": "com.tcapdevs.searai.preview"
       },
       "android": {
         "buildType": "apk"
@@ -24,7 +24,7 @@
     },
     "production": {
       "ios": {
-        "bundleIdentifier": "com.archieplant.recipekillerai"
+        "bundleIdentifier": "com.tcapdevs.searai"
       },
       "android": {
         "buildType": "apk"

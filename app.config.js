@@ -2,23 +2,23 @@ import 'dotenv/config';
 
 export default {
   expo: {
-    name: 'recipe-killer-ai',
-    slug: 'recipe-killer-ai',
+    name: 'SearAI',
+    slug: 'searai',
     version: '1.0.0',
     orientation: 'portrait',
     icon: './assets/images/icon.png',
-    scheme: 'recipekillerai',
+    scheme: 'searai',
     userInterfaceStyle: 'automatic',
     newArchEnabled: true,
     ios: {
-      bundleIdentifier: 'com.archieplant.recipekillerai',
+      bundleIdentifier: 'com.tcapdevs.searai',
       supportsTablet: true,
       infoPlist: {
-        NSPrivacyPolicyURL: 'https://archieplant.github.io/recipe-killer-ai/privacy-policy.html',
+        NSPrivacyPolicyURL: 'https://archieplant.github.io/searai/privacy-policy.html',
       },
     },
     android: {
-      package: 'com.archieplant.recipekillerai',
+      package: 'com.tcapdevs.searai',
       adaptiveIcon: {
         backgroundColor: '#E6F4FE',
         foregroundImage: './assets/images/android-icon-foreground.png',

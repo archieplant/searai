@@ -8,8 +8,8 @@
  */
 
 // TODO: Replace with your actual GitHub Pages URLs after enabling GitHub Pages
-const GITHUB_USERNAME = 'archieplant'; // Replace with your GitHub username
-const REPO_NAME = 'recipe-killer-ai'; // Replace with your repo name
+const GITHUB_USERNAME = 'archieplant'; // GitHub username
+const REPO_NAME = 'searai'; // Repository name
 
 export const LEGAL_URLS = {
   PRIVACY_POLICY: `https://${GITHUB_USERNAME}.github.io/${REPO_NAME}/privacy-policy.html`,

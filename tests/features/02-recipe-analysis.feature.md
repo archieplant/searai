@@ -26,6 +26,8 @@ This feature covers the core functionality of the Recipe Killer AI app:
 - Images are uploaded to Supabase Storage
 - Recipe data stored as JSONB in database
 
+Note: This app was previously known as Recipe Killer AI and is now called SearAI.
+
 ---
 
 ## Background

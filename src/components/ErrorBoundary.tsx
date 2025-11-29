@@ -121,7 +121,7 @@ function ErrorFallback({ error, errorInfo, resetError }: ErrorFallbackProps) {
 
         <Text style={styles.footer}>
           If this problem persists, please contact support at{'\n'}
-          archieplant02@hotmail.co.uk
+          support@searai.app
         </Text>
       </View>
     </View>

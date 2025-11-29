@@ -1,10 +1,14 @@
-# Recipe Killer AI
+# SearAI
 
 AI-powered recipe analysis and simplification app built with React Native and Expo.
 
+## About SearAI
+
+SearAI transforms any recipe into simplified versions tailored to your skill level and dietary preferences.
+
 ## Overview
 
-Recipe Killer AI transforms any recipe into simplified versions tailored to your skill level. Upload a photo or paste text, and get 5 complexity levels (from beginner to expert) with dietary preferences applied.
+SearAI transforms any recipe into simplified versions tailored to your skill level. Upload a photo or paste text, and get 5 complexity levels (from beginner to expert) with dietary preferences applied.
 
 ## Features
 
@@ -109,8 +113,8 @@ Recipe Killer AI transforms any recipe into simplified versions tailored to your
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/archieplant/recipe-killer-ai.git
-   cd recipe-killer-ai
+   git clone https://github.com/archieplant/searai.git
+   cd searai
    ```
 
 2. **Install dependencies**
@@ -228,9 +232,9 @@ See [SUPABASE_SCHEMA.md](./SUPABASE_SCHEMA.md) for complete database documentati
 - Service role for backend operations only
 
 ### Legal Compliance
-- Privacy Policy: https://archieplant.github.io/recipe-killer-ai/privacy-policy.html
-- Terms of Service: https://archieplant.github.io/recipe-killer-ai/terms-of-service.html
-- Content Policy: https://archieplant.github.io/recipe-killer-ai/content-policy.html
+- Privacy Policy: https://archieplant.github.io/searai/privacy-policy.html
+- Terms of Service: https://archieplant.github.io/searai/terms-of-service.html
+- Content Policy: https://archieplant.github.io/searai/content-policy.html
 - GDPR, CCPA, and COPPA compliant
 
 ## Design
@@ -277,8 +281,8 @@ Private project - All rights reserved
 
 ## Contact
 
-**Support**: archieplant02@hotmail.co.uk
-**Developers**: Archie Plant & Thomas Chandler
+**Support**: support@searai.app
+**Developers**: TCAPDevs
 **Location**: 24 Swan Street, Boxford, Suffolk, CO10 5NZ, UK
 
 ---

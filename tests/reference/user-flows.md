@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides visual journey maps for all major user flows in the Recipe Killer AI app. Use these flows when implementing features, designing UX, or writing test scenarios.
+This document provides visual journey maps for all major user flows in the SearAI app. Use these flows when implementing features, designing UX, or writing test scenarios.
 
 ---
 

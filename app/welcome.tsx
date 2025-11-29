@@ -125,7 +125,7 @@ export default function WelcomeScreen() {
   const handleSignup = async () => {
     // Legal consent validation (MUST be first for COPPA compliance)
     if (!ageVerified) {
-      Alert.alert('Age Verification Required', 'You must be 13 years or older to use Recipe Killer AI');
+      Alert.alert('Age Verification Required', 'You must be 13 years or older to use SearAI');
       return;
     }
 

@@ -1,5 +1,5 @@
 /**
- * Recipe Killer AI - Theme Colors
+ * SearAI - Theme Colors
  * Primary color scheme used throughout the app
  */
 

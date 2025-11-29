@@ -2,7 +2,7 @@
 
 ## Description
 
-This feature covers the monetization and subscription system:
+This feature covers the monetization and subscription system for SearAI:
 - Free tier limits (5 analyses/month, 3 saved recipes)
 - Premium tier benefits (unlimited everything)
 - Paywall presentation and triggers

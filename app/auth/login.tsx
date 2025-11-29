@@ -93,7 +93,7 @@ export default function LoginScreen() {
           <View style={styles.logoContainer}>
             <Ionicons name="restaurant" size={48} color="#A4E900" />
           </View>
-          <Text style={styles.appName}>Recipe Killer</Text>
+          <Text style={styles.appName}>SearAI</Text>
           <Text style={styles.welcomeText}>Welcome back!</Text>
         </View>
 

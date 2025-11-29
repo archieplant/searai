@@ -1,4 +1,4 @@
--- Recipe Killer AI - Legal Consents Schema
+-- SearAI - Legal Consents Schema
 -- This file contains the SQL schema for tracking user consent to legal documents
 
 -- =====================================================

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides a comprehensive reference of all database tables, their schemas, relationships, and data structures used in the Recipe Killer AI app. Use this when implementing features that interact with the database or when writing tests that verify data integrity.
+This document provides a comprehensive reference of all database tables, their schemas, relationships, and data structures used in the SearAI app. Use this when implementing features that interact with the database or when writing tests that verify data integrity.
 
 ---
 

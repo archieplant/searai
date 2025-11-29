@@ -1,8 +1,8 @@
-# Recipe Killer AI - BDD Test Suite
+# SearAI - BDD Test Suite
 
 ## Overview
 
-This directory contains Behavior Driven Development (BDD) test specifications for the Recipe Killer AI app. These tests are written in Gherkin syntax using Given/When/Then scenarios to document expected application behavior.
+This directory contains Behavior Driven Development (BDD) test specifications for the SearAI app. These tests are written in Gherkin syntax using Given/When/Then scenarios to document expected application behavior.
 
 ## Purpose
 

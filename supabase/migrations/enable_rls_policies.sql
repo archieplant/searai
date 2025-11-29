@@ -1,5 +1,5 @@
 -- =====================================================
--- Recipe Killer AI - Row Level Security (RLS) Migration
+-- SearAI - Row Level Security (RLS) Migration
 -- =====================================================
 -- This migration enables RLS and creates security policies
 -- for all tables to ensure users can only access their own data.

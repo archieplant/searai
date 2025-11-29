@@ -1,4 +1,4 @@
--- Recipe Killer AI - Community Recipes Schema
+-- SearAI - Community Recipes Schema
 -- This file contains the SQL schema for the community recipe sharing feature
 
 -- =====================================================

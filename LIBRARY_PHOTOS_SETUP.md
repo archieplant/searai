@@ -5,7 +5,7 @@ This guide will help you add photos to your 5 library recipes.
 ## Step 1: Create Storage Bucket in Supabase
 
 1. Go to https://supabase.com/dashboard
-2. Select your **recipe-killer-ai** project
+2. Select your **searai** project
 3. Click **Storage** in the left sidebar
 4. Click **New bucket**
 5. Configure the bucket:
