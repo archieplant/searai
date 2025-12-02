@@ -26,6 +26,14 @@ export default function RootLayout() {
   useEffect(() => {
     const initializeApp = async () => {
       try {
+        // Initialize RevenueCat early (without user) so paywall can work before signup
+        try {
+          await initializeRevenueCat();
+          console.log('RevenueCat initialized for anonymous users');
+        } catch (error) {
+          console.error('Failed to initialize RevenueCat on app start:', error);
+        }
+
         // Check if user has seen onboarding
         const onboardingStatus = await AsyncStorage.getItem('onboardingComplete_v2');
         const hasOnboarded = onboardingStatus === 'true';
@@ -51,8 +59,8 @@ export default function RootLayout() {
       console.log('Auth state changed in root layout:', event);
       setUser(session?.user ?? null);
 
-      // Initialize RevenueCat when user signs in
-      if (event === 'SIGNED_IN' && session?.user) {
+      // Initialize RevenueCat when user signs in OR when existing session is detected
+      if ((event === 'SIGNED_IN' || event === 'INITIAL_SESSION') && session?.user) {
         try {
           await initializeRevenueCat(session.user.id);
           console.log('RevenueCat initialized for user:', session.user.id);
@@ -149,6 +157,7 @@ export default function RootLayout() {
             <Stack.Screen name="onboarding/how-it-works" options={{ headerShown: false }} />
             <Stack.Screen name="onboarding/personal-info" options={{ headerShown: false }} />
             <Stack.Screen name="onboarding/preferences" options={{ headerShown: false }} />
+            <Stack.Screen name="onboarding/paywall" options={{ headerShown: false }} />
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="auth/login" options={{ headerShown: false }} />
             <Stack.Screen name="auth/signup" options={{ headerShown: false }} />

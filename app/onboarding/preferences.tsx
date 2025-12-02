@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
-  ScrollView,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
@@ -38,9 +37,9 @@ export default function OnboardingPreferences() {
 
   const handleSkip = async () => {
     try {
-      // Navigate to signup with personal info, skipping preferences
+      // Navigate to paywall with personal info, skipping preferences
       router.push({
-        pathname: '/auth/signup',
+        pathname: '/onboarding/paywall',
         params: {
           firstName,
           lastName,
@@ -48,7 +47,7 @@ export default function OnboardingPreferences() {
         },
       });
     } catch (error) {
-      console.error('Error navigating to signup:', error);
+      console.error('Error navigating to paywall:', error);
     }
   };
 
@@ -65,9 +64,9 @@ export default function OnboardingPreferences() {
         .map((item) => item.trim())
         .filter((item) => item.length > 0);
 
-      // Navigate to signup with all collected data
+      // Navigate to paywall with all collected data
       router.push({
-        pathname: '/auth/signup',
+        pathname: '/onboarding/paywall',
         params: {
           firstName,
           lastName,
@@ -78,7 +77,7 @@ export default function OnboardingPreferences() {
         },
       });
     } catch (error) {
-      console.error('Error navigating to signup:', error);
+      console.error('Error navigating to paywall:', error);
     }
   };
 
@@ -88,134 +87,138 @@ export default function OnboardingPreferences() {
 
   return (
     <KeyboardAvoidingView
-      style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.modalOverlay}
+      keyboardVerticalOffset={0}
     >
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Header */}
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={handleBack}
-            activeOpacity={0.7}
-          >
-            <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.skipButton}
-            onPress={handleSkip}
-            activeOpacity={0.7}
-          >
-            <Text style={styles.skipButtonText}>Skip</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Title */}
-        <Text style={styles.title}>Any dietary restrictions?</Text>
-        <Text style={styles.subtitle}>
-          Optional - helps us tailor recipes to your needs
-        </Text>
-
-        {/* Allergies Section */}
-        <View style={styles.section}>
-          <Text style={styles.sectionLabel}>Allergies</Text>
-          <Text style={styles.sectionHint}>Separate with commas</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="e.g., peanuts, shellfish, dairy"
-            placeholderTextColor="#636366"
-            value={allergiesInput}
-            onChangeText={setAllergiesInput}
-            autoCapitalize="none"
-            autoCorrect={false}
-          />
-        </View>
-
-        {/* Dislikes Section */}
-        <View style={styles.section}>
-          <Text style={styles.sectionLabel}>Dislikes</Text>
-          <Text style={styles.sectionHint}>Foods you'd prefer to avoid</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="e.g., mushrooms, cilantro, olives"
-            placeholderTextColor="#636366"
-            value={dislikesInput}
-            onChangeText={setDislikesInput}
-            autoCapitalize="none"
-            autoCorrect={false}
-          />
-        </View>
-
-        {/* Diet Type Section */}
-        <View style={styles.section}>
-          <Text style={styles.sectionLabel}>Diet Type</Text>
-          <View style={styles.dietTypeContainer}>
-            {DIET_TYPE_OPTIONS.map((option) => (
+      <View style={styles.modalKeyboardView}>
+        <View style={styles.container}>
+          <View style={styles.content}>
+            <View style={styles.modalHeader}>
+              <TouchableOpacity style={styles.backButton} onPress={handleBack}>
+                <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+              </TouchableOpacity>
               <TouchableOpacity
-                key={option}
-                style={[
-                  styles.dietTypeChip,
-                  selectedDietType === option && styles.dietTypeChipSelected,
-                ]}
-                onPress={() => setSelectedDietType(option)}
+                style={styles.skipButton}
+                onPress={handleSkip}
                 activeOpacity={0.7}
               >
-                <Text
-                  style={[
-                    styles.dietTypeChipText,
-                    selectedDietType === option && styles.dietTypeChipTextSelected,
-                  ]}
-                >
-                  {option}
-                </Text>
+                <Text style={styles.skipButtonText}>Skip</Text>
               </TouchableOpacity>
-            ))}
+            </View>
+
+            {/* Title */}
+            <Text style={styles.title}>Any dietary restrictions?</Text>
+            <Text style={styles.subtitle}>
+              Optional - helps us tailor recipes to your needs
+            </Text>
+
+            {/* Allergies Section */}
+            <View style={styles.section}>
+              <Text style={styles.sectionLabel}>Allergies</Text>
+              <Text style={styles.sectionHint}>Separate with commas</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="e.g., peanuts, shellfish, dairy"
+                placeholderTextColor="#636366"
+                value={allergiesInput}
+                onChangeText={setAllergiesInput}
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+            </View>
+
+            {/* Dislikes Section */}
+            <View style={styles.section}>
+              <Text style={styles.sectionLabel}>Dislikes</Text>
+              <Text style={styles.sectionHint}>Foods you'd prefer to avoid</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="e.g., mushrooms, cilantro, olives"
+                placeholderTextColor="#636366"
+                value={dislikesInput}
+                onChangeText={setDislikesInput}
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+            </View>
+
+            {/* Diet Type Section */}
+            <View style={styles.section}>
+              <Text style={styles.sectionLabel}>Diet Type</Text>
+              <View style={styles.dietTypeContainer}>
+                {DIET_TYPE_OPTIONS.map((option) => (
+                  <TouchableOpacity
+                    key={option}
+                    style={[
+                      styles.dietTypeChip,
+                      selectedDietType === option && styles.dietTypeChipSelected,
+                    ]}
+                    onPress={() => setSelectedDietType(option)}
+                    activeOpacity={0.7}
+                  >
+                    <Text
+                      style={[
+                        styles.dietTypeChipText,
+                        selectedDietType === option && styles.dietTypeChipTextSelected,
+                      ]}
+                    >
+                      {option}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            </View>
+
+            {/* Spacer */}
+            <View style={styles.spacer} />
+
+            {/* Continue Button */}
+            <TouchableOpacity
+              style={styles.continueButton}
+              onPress={handleContinue}
+              activeOpacity={0.8}
+            >
+              <Text style={styles.continueButtonText}>Continue</Text>
+              <Ionicons name="arrow-forward" size={20} color="#000000" />
+            </TouchableOpacity>
           </View>
         </View>
-      </ScrollView>
-
-      {/* Continue Button */}
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.continueButton}
-          onPress={handleContinue}
-          activeOpacity={0.8}
-        >
-          <Text style={styles.continueButtonText}>Continue</Text>
-          <Ionicons name="arrow-forward" size={20} color="#FFFFFF" />
-        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+  },
+  modalKeyboardView: {
+    height: '100%',
+  },
   container: {
     flex: 1,
     backgroundColor: '#000000',
   },
-  scrollView: {
+  content: {
     flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: 32,
+    paddingHorizontal: 24,
     paddingTop: 60,
-    paddingBottom: 24,
+    paddingBottom: 40,
   },
-  header: {
+  modalHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 24,
+    marginBottom: 8,
   },
   backButton: {
     padding: 8,
+  },
+  headerSpacer: {
+    width: 40,
   },
   skipButton: {
     padding: 8,
@@ -285,12 +288,9 @@ const styles = StyleSheet.create({
   dietTypeChipTextSelected: {
     color: '#000000',
   },
-  buttonContainer: {
-    paddingHorizontal: 32,
-    paddingVertical: 24,
-    backgroundColor: '#000000',
-    borderTopWidth: 1,
-    borderTopColor: '#1C1C1E',
+  spacer: {
+    flex: 1,
+    minHeight: 20,
   },
   continueButton: {
     flexDirection: 'row',
@@ -305,6 +305,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 6,
+    marginTop: 24,
   },
   continueButtonText: {
     color: '#000000',

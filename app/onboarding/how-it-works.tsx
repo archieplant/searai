@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -18,7 +18,7 @@ function Step({ icon, number, title, description }: StepProps) {
       </View>
       <View style={styles.stepContent}>
         <Text style={styles.stepNumber}>{number}</Text>
-        <Text style={styles.stepTitle}>{title}</Text>
+        <Text style={styles.stepItemTitle}>{title}</Text>
         <Text style={styles.stepDescription}>{description}</Text>
       </View>
     </View>
@@ -37,86 +37,129 @@ export default function OnboardingHowItWorks() {
   };
 
   return (
-    <View style={styles.container}>
-      {/* Back Button */}
-      <TouchableOpacity
-        style={styles.backButton}
-        onPress={handleBack}
-        activeOpacity={0.7}
-      >
-        <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
-      </TouchableOpacity>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.modalOverlay}
+      keyboardVerticalOffset={0}
+    >
+      <View style={styles.modalKeyboardView}>
+        <View style={styles.container}>
+          <View style={styles.content}>
+            {/* Header with Back Button */}
+            <View style={styles.modalHeader}>
+              <TouchableOpacity
+                style={styles.backButton}
+                onPress={handleBack}
+                activeOpacity={0.7}
+              >
+                <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+              </TouchableOpacity>
+              <View style={styles.headerSpacer} />
+            </View>
 
-      {/* Title */}
-      <Text style={styles.title}>How It Works</Text>
-      <Text style={styles.subtitle}>Three simple steps to better recipes</Text>
+            <View style={styles.stepContainer}>
+              {/* Title */}
+              <Text style={styles.stepTitle}>How It Works</Text>
+              <Text style={styles.stepSubtitle}>Three simple steps to better recipes</Text>
 
-      {/* Steps */}
-      <View style={styles.stepsContainer}>
-        <Step
-          icon="camera"
-          number="1"
-          title="Upload or paste any recipe"
-          description="Take a photo or copy text from any source"
-        />
+              {/* Steps */}
+              <View style={styles.stepsContainer}>
+                <Step
+                  icon="camera"
+                  number="1"
+                  title="Upload or paste any recipe"
+                  description="Take a photo or copy text from any source"
+                />
 
-        <Step
-          icon="options"
-          number="2"
-          title="Slide to simplify"
-          description="Choose from 5 complexity levels to match your time"
-        />
+                <Step
+                  icon="options"
+                  number="2"
+                  title="Slide to simplify"
+                  description="Choose from 5 complexity levels to match your time"
+                />
 
-        <Step
-          icon="bookmark"
-          number="3"
-          title="Save your favorites"
-          description="Keep recipes you love for quick access later"
-        />
+                <Step
+                  icon="bookmark"
+                  number="3"
+                  title="Save your favorites"
+                  description="Keep recipes you love for quick access later"
+                />
+              </View>
+
+              {/* Spacer */}
+              <View style={styles.spacer} />
+
+              {/* Next Button */}
+              <TouchableOpacity
+                style={styles.nextButton}
+                onPress={handleNext}
+                activeOpacity={0.8}
+              >
+                <Text style={styles.nextButtonText}>Next</Text>
+                <Ionicons name="arrow-forward" size={20} color="#000000" />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
       </View>
-
-      {/* Spacer */}
-      <View style={styles.spacer} />
-
-      {/* Next Button */}
-      <TouchableOpacity
-        style={styles.nextButton}
-        onPress={handleNext}
-        activeOpacity={0.8}
-      >
-        <Text style={styles.nextButtonText}>Next</Text>
-        <Ionicons name="arrow-forward" size={20} color="#FFFFFF" />
-      </TouchableOpacity>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
+  // Modal wrapper styles
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+  },
+  modalKeyboardView: {
+    height: '100%',
+  },
   container: {
     flex: 1,
     backgroundColor: '#000000',
-    paddingHorizontal: 32,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 24,
     paddingTop: 60,
     paddingBottom: 40,
   },
-  backButton: {
-    alignSelf: 'flex-start',
-    padding: 8,
-    marginBottom: 24,
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
   },
-  title: {
-    fontSize: 32,
+  backButton: {
+    padding: 8,
+  },
+  headerSpacer: {
+    width: 40,
+  },
+  stepContainer: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  spacer: {
+    flex: 1,
+    minHeight: 20,
+  },
+  stepTitle: {
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#FFFFFF',
     marginBottom: 8,
   },
-  subtitle: {
+  stepSubtitle: {
     fontSize: 16,
     color: '#98989D',
-    marginBottom: 40,
+    marginBottom: 32,
   },
   stepsContainer: {
     gap: 32,
+    marginBottom: 32,
   },
   step: {
     flexDirection: 'row',
@@ -143,7 +186,7 @@ const styles = StyleSheet.create({
     color: '#A4E900',
     marginBottom: 4,
   },
-  stepTitle: {
+  stepItemTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#FFFFFF',
@@ -153,9 +196,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
     color: '#98989D',
-  },
-  spacer: {
-    flex: 1,
   },
   nextButton: {
     flexDirection: 'row',
@@ -170,6 +210,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 6,
+    marginTop: 24,
   },
   nextButtonText: {
     color: '#000000',

@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
-  ScrollView,
   Alert,
   KeyboardAvoidingView,
   Platform,
@@ -64,133 +63,147 @@ export default function PersonalInfoScreen() {
 
   return (
     <KeyboardAvoidingView
-      style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.modalOverlay}
+      keyboardVerticalOffset={0}
     >
-      <ScrollView
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-        keyboardShouldPersistTaps="handled"
-      >
-        {/* Back Button */}
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={handleBack}
-          activeOpacity={0.7}
-        >
-          <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
-        </TouchableOpacity>
+      <View style={styles.modalKeyboardView}>
+        <View style={styles.container}>
+          <View style={styles.content}>
+            <View style={styles.modalHeader}>
+              <TouchableOpacity style={styles.backButton} onPress={handleBack}>
+                <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+              </TouchableOpacity>
+              <View style={styles.headerSpacer} />
+            </View>
 
-        {/* Title */}
-        <Text style={styles.title}>Tell Us About You</Text>
-        <Text style={styles.subtitle}>
-          We'll personalize your experience
-        </Text>
+            {/* Title */}
+            <Text style={styles.title}>Tell Us About You</Text>
+            <Text style={styles.subtitle}>
+              We'll personalize your experience
+            </Text>
 
-        {/* First Name Input */}
-        <View style={styles.inputSection}>
-          <Text style={styles.label}>First Name</Text>
-          <View style={styles.inputContainer}>
-            <Ionicons
-              name="person-outline"
-              size={20}
-              color="#A4E900"
-              style={styles.inputIcon}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Enter your first name"
-              placeholderTextColor="#636366"
-              value={firstName}
-              onChangeText={setFirstName}
-              autoCapitalize="words"
-              autoComplete="given-name"
-            />
-          </View>
-        </View>
-
-        {/* Last Name Input */}
-        <View style={styles.inputSection}>
-          <Text style={styles.label}>Last Name</Text>
-          <View style={styles.inputContainer}>
-            <Ionicons
-              name="person-outline"
-              size={20}
-              color="#A4E900"
-              style={styles.inputIcon}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Enter your last name"
-              placeholderTextColor="#636366"
-              value={lastName}
-              onChangeText={setLastName}
-              autoCapitalize="words"
-              autoComplete="family-name"
-            />
-          </View>
-        </View>
-
-        {/* Referral Source Picker */}
-        <View style={styles.inputSection}>
-          <Text style={styles.label}>How did you hear about us?</Text>
-          <View style={styles.pickerContainer}>
-            <Ionicons
-              name="megaphone-outline"
-              size={20}
-              color="#A4E900"
-              style={styles.pickerIcon}
-            />
-            <Picker
-              selectedValue={referralSource}
-              onValueChange={(itemValue) => setReferralSource(itemValue)}
-              style={styles.picker}
-              dropdownIconColor="#A4E900"
-            >
-              {REFERRAL_SOURCES.map((source) => (
-                <Picker.Item
-                  key={source}
-                  label={source}
-                  value={source}
-                  color="#FFFFFF"
+            {/* First Name Input */}
+            <View style={styles.inputSection}>
+              <Text style={styles.label}>First Name</Text>
+              <View style={styles.inputContainer}>
+                <Ionicons
+                  name="person-outline"
+                  size={20}
+                  color="#A4E900"
+                  style={styles.inputIcon}
                 />
-              ))}
-            </Picker>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Enter your first name"
+                  placeholderTextColor="#636366"
+                  value={firstName}
+                  onChangeText={setFirstName}
+                  autoCapitalize="words"
+                  autoComplete="given-name"
+                />
+              </View>
+            </View>
+
+            {/* Last Name Input */}
+            <View style={styles.inputSection}>
+              <Text style={styles.label}>Last Name</Text>
+              <View style={styles.inputContainer}>
+                <Ionicons
+                  name="person-outline"
+                  size={20}
+                  color="#A4E900"
+                  style={styles.inputIcon}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Enter your last name"
+                  placeholderTextColor="#636366"
+                  value={lastName}
+                  onChangeText={setLastName}
+                  autoCapitalize="words"
+                  autoComplete="family-name"
+                />
+              </View>
+            </View>
+
+            {/* Referral Source Picker */}
+            <View style={styles.inputSection}>
+              <Text style={styles.label}>How did you hear about us?</Text>
+              <View style={styles.pickerContainer}>
+                <Ionicons
+                  name="megaphone-outline"
+                  size={20}
+                  color="#A4E900"
+                  style={styles.pickerIcon}
+                />
+                <Picker
+                  selectedValue={referralSource}
+                  onValueChange={(itemValue) => setReferralSource(itemValue)}
+                  style={styles.picker}
+                  dropdownIconColor="#A4E900"
+                >
+                  {REFERRAL_SOURCES.map((source) => (
+                    <Picker.Item
+                      key={source}
+                      label={source}
+                      value={source}
+                      color="#FFFFFF"
+                    />
+                  ))}
+                </Picker>
+              </View>
+            </View>
+
+            {/* Spacer */}
+            <View style={styles.spacer} />
+
+            {/* Next Button */}
+            <TouchableOpacity
+              style={styles.nextButton}
+              onPress={handleNext}
+              activeOpacity={0.8}
+            >
+              <Text style={styles.nextButtonText}>Continue</Text>
+              <Ionicons name="arrow-forward" size={20} color="#000000" />
+            </TouchableOpacity>
           </View>
         </View>
-
-        {/* Spacer */}
-        <View style={styles.spacer} />
-
-        {/* Next Button */}
-        <TouchableOpacity
-          style={styles.nextButton}
-          onPress={handleNext}
-          activeOpacity={0.8}
-        >
-          <Text style={styles.nextButtonText}>Continue</Text>
-          <Ionicons name="arrow-forward" size={20} color="#000000" />
-        </TouchableOpacity>
-      </ScrollView>
+      </View>
     </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+  },
+  modalKeyboardView: {
+    height: '100%',
+  },
   container: {
     flex: 1,
     backgroundColor: '#000000',
   },
-  scrollContent: {
-    flexGrow: 1,
-    paddingHorizontal: 32,
+  content: {
+    flex: 1,
+    paddingHorizontal: 24,
     paddingTop: 60,
     paddingBottom: 40,
   },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
   backButton: {
-    alignSelf: 'flex-start',
     padding: 8,
-    marginBottom: 24,
+  },
+  headerSpacer: {
+    width: 40,
   },
   title: {
     fontSize: 32,

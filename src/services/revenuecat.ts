@@ -15,12 +15,12 @@ if (!revenueCatApiKey) {
 let isTestMode = false;
 
 /**
- * Initializes RevenueCat SDK and sets the user ID
+ * Initializes RevenueCat SDK (can be called without user ID for anonymous users)
  *
- * @param userId - The user's ID from Supabase auth
+ * @param userId - Optional user ID from Supabase auth. If not provided, uses anonymous mode.
  * @returns Promise<void>
  */
-export async function initializeRevenueCat(userId: string): Promise<void> {
+export async function initializeRevenueCat(userId?: string): Promise<void> {
   try {
     // Configure Purchases SDK with API key
     if (Platform.OS === 'ios') {
@@ -29,10 +29,14 @@ export async function initializeRevenueCat(userId: string): Promise<void> {
       await Purchases.configure({ apiKey: revenueCatApiKey });
     }
 
-    // Set the user ID for tracking
-    await Purchases.logIn(userId);
+    // Set the user ID for tracking (only if provided)
+    if (userId) {
+      await Purchases.logIn(userId);
+      console.log('RevenueCat initialized successfully for user:', userId);
+    } else {
+      console.log('RevenueCat initialized in anonymous mode');
+    }
 
-    console.log('RevenueCat initialized successfully for user:', userId);
     isTestMode = false;
   } catch (error: any) {
     // Check if this is the Expo Go error

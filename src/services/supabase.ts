@@ -915,6 +915,11 @@ export async function signOut(): Promise<{ error: string | null }> {
       return { error: error.message };
     }
 
+    // Clear onboarding status so next user goes through onboarding + paywall
+    const AsyncStorage = (await import('@react-native-async-storage/async-storage')).default;
+    await AsyncStorage.removeItem('onboardingComplete_v2');
+    console.log('Onboarding status cleared for next user');
+
     console.log('User signed out successfully');
     return { error: null };
   } catch (error) {
@@ -1083,6 +1088,157 @@ export async function getCommunityRecipes(limit: number = 50): Promise<Community
       throw error;
     }
     throw new Error('An unknown error occurred while loading community recipes');
+  }
+}
+
+/**
+ * Get Recipe of the Week (highest saved recipe in the last 7 days)
+ *
+ * @returns Promise<CommunityRecipe | null> - The recipe of the week or null if none found
+ * @throws Error if the fetch operation fails
+ */
+export async function getRecipeOfTheWeek(): Promise<CommunityRecipe | null> {
+  try {
+    // Calculate date 7 days ago
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const sevenDaysAgoISO = sevenDaysAgo.toISOString();
+
+    const { data, error } = await supabase
+      .from('community_recipes')
+      .select('*')
+      .eq('is_published', true)
+      .gte('created_at', sevenDaysAgoISO)
+      .order('save_count', { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    if (error) {
+      console.error('Error fetching recipe of the week:', error);
+      throw new Error(`Failed to load recipe of the week: ${error.message}`);
+    }
+
+    // If no recipe found in last 7 days, fallback to all-time highest saved
+    if (!data) {
+      const { data: fallbackData, error: fallbackError } = await supabase
+        .from('community_recipes')
+        .select('*')
+        .eq('is_published', true)
+        .order('save_count', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (fallbackError) {
+        console.error('Error fetching fallback recipe of the week:', fallbackError);
+        return null;
+      }
+
+      return (fallbackData as CommunityRecipe) || null;
+    }
+
+    return data as CommunityRecipe;
+  } catch (error) {
+    console.error('Error in getRecipeOfTheWeek:', error);
+    if (error instanceof Error) {
+      throw error;
+    }
+    throw new Error('An unknown error occurred while loading recipe of the week');
+  }
+}
+
+/**
+ * Get Trending Recipes (top saved recipes in the last 7 days, excluding Recipe of the Week)
+ *
+ * @param limit - Maximum number of trending recipes to return (default 8)
+ * @param excludeRecipeId - Recipe ID to exclude (typically the Recipe of the Week)
+ * @returns Promise<CommunityRecipe[]> - Array of trending recipes
+ * @throws Error if the fetch operation fails
+ */
+export async function getTrendingRecipes(
+  limit: number = 8,
+  excludeRecipeId?: string
+): Promise<CommunityRecipe[]> {
+  try {
+    // Calculate date 7 days ago
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const sevenDaysAgoISO = sevenDaysAgo.toISOString();
+
+    let query = supabase
+      .from('community_recipes')
+      .select('*')
+      .eq('is_published', true)
+      .gte('created_at', sevenDaysAgoISO)
+      .order('save_count', { ascending: false })
+      .limit(limit);
+
+    // Exclude Recipe of the Week if provided
+    if (excludeRecipeId) {
+      query = query.neq('id', excludeRecipeId);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+      console.error('Error fetching trending recipes:', error);
+      throw new Error(`Failed to load trending recipes: ${error.message}`);
+    }
+
+    return (data as CommunityRecipe[]) || [];
+  } catch (error) {
+    console.error('Error in getTrendingRecipes:', error);
+    if (error instanceof Error) {
+      throw error;
+    }
+    throw new Error('An unknown error occurred while loading trending recipes');
+  }
+}
+
+/**
+ * Check if current user has saved a specific community recipe
+ *
+ * @param communityRecipeId - ID of the community recipe to check
+ * @returns Promise<boolean> - True if user has saved this recipe
+ */
+export async function hasUserSavedCommunityRecipe(
+  communityRecipeId: string
+): Promise<boolean> {
+  try {
+    const currentUser = await getCurrentUser();
+    if (!currentUser) {
+      return false;
+    }
+
+    // Get the community recipe's dish name
+    const { data: communityRecipe, error: fetchError } = await supabase
+      .from('community_recipes')
+      .select('recipe_data')
+      .eq('id', communityRecipeId)
+      .single();
+
+    if (fetchError || !communityRecipe) {
+      return false;
+    }
+
+    // Check if user has saved a recipe with the same dish name
+    const { data: savedRecipes, error: savedError } = await supabase
+      .from('saved_recipes')
+      .select('recipe_data')
+      .eq('user_id', currentUser.id);
+
+    if (savedError || !savedRecipes) {
+      return false;
+    }
+
+    // Compare dish names (case-insensitive)
+    const communityDishName = communityRecipe.recipe_data?.dishName?.toLowerCase();
+    return savedRecipes.some(
+      (saved: any) =>
+        saved.recipe_data?.dishName?.toLowerCase() === communityDishName
+    );
+  } catch (error) {
+    console.error('Error checking if user saved community recipe:', error);
+    return false;
   }
 }
 

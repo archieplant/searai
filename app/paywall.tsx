@@ -145,23 +145,29 @@ export default function PaywallScreen() {
     try {
       setIsPurchasing(true);
 
-      // DEV MODE: Auto-grant premium access
-      const user = await getCurrentUser();
-      if (user) {
-        // Grant 1 year of premium
-        const expiresAt = new Date();
-        expiresAt.setFullYear(expiresAt.getFullYear() + 1);
+      // Attempt to restore purchases through RevenueCat
+      const customerInfo = await restorePurchases();
 
-        await updateSubscriptionStatus(
-          user.id,
-          true,
-          'annual',
-          expiresAt.toISOString()
-        );
+      // Check if restore was successful
+      if (customerInfo.entitlements.active['premium']) {
+        // Update Supabase subscription status
+        const user = await getCurrentUser();
+        if (user) {
+          // Note: In production, you'd get actual expiration date from RevenueCat
+          const expiresAt = new Date();
+          expiresAt.setFullYear(expiresAt.getFullYear() + 1);
+
+          await updateSubscriptionStatus(
+            user.id,
+            true,
+            'annual', // This should be determined from actual subscription
+            expiresAt.toISOString()
+          );
+        }
 
         Alert.alert(
-          'Premium Unlocked!',
-          'You now have 1 year of premium access for testing.',
+          'Purchases Restored!',
+          'Your premium subscription has been restored.',
           [
             {
               text: 'OK',
@@ -171,12 +177,18 @@ export default function PaywallScreen() {
             },
           ]
         );
+      } else {
+        // No purchases to restore
+        Alert.alert(
+          'No Purchases Found',
+          'No previous purchases were found for this account.'
+        );
       }
     } catch (error) {
-      console.error('Error granting premium:', error);
+      console.error('Error restoring purchases:', error);
       Alert.alert(
-        'Error',
-        'Failed to grant premium access. Please try again.'
+        'Restore Failed',
+        'Failed to restore purchases. Please try again.'
       );
     } finally {
       setIsPurchasing(false);
