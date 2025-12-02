@@ -264,18 +264,31 @@ SearAI transforms any recipe into simplified versions tailored to your skill lev
 
 ## Production Checklist
 
-Before launching:
+### ✅ Completed
+- [x] Configure RevenueCat products in stores
+- [x] Deploy Edge Function with SearAI branding
+- [x] Secure API keys in Supabase secrets
+- [x] Host legal documents on custom domain (https://legal.searai.app)
+- [x] Enable Row Level Security (RLS) policies
+- [x] Set up community features (Recipe of the Week, Trending)
 
+### 📋 Before App Store Submission
 - [ ] Update App Store screenshots
+- [ ] Test subscription flow end-to-end on TestFlight
+- [ ] Verify legal documents are accessible in-app
+- [ ] Test community features with multiple test users
+- [ ] Verify OpenAI Edge Function rate limiting works
+- [ ] Test dietary preferences with all combinations
+- [ ] Verify photo upload and analysis works reliably
+- [ ] Test deep linking with `searai://` scheme
 - [ ] Submit for App Store review
-- [ ] Configure RevenueCat products in stores
-- [ ] Enable RLS policies in production database
+
+### 🔧 Optional Enhancements
 - [ ] Set up crash reporting (Sentry recommended)
-- [ ] Configure analytics (optional)
-- [ ] Test subscription flow end-to-end
-- [ ] Verify legal documents are accessible
-- [ ] Test community features with multiple users
-- [ ] Verify OpenAI Edge Function rate limiting
+- [ ] Configure analytics (Mixpanel/Amplitude)
+- [ ] Set up App Store Connect API for automation
+- [ ] Configure push notifications (if needed)
+- [ ] Set up A/B testing framework (if needed)
 
 ## Support
 
