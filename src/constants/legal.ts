@@ -3,14 +3,11 @@
  *
  * Contains URLs to hosted legal documents and version tracking.
  *
- * Legal documents are hosted on Vercel with custom domain.
- * See /legal-docs/README.md for deployment instructions.
+ * Legal documents are hosted on Vercel at https://legal.searai.app
+ * See /legal-docs/README.md for updating legal documents.
  */
 
-// TODO: After deploying to Vercel, update this base URL with your custom domain
-// Recommended: Use subdomain like https://legal.searai.app
-// Alternative: Use root domain https://searai.app
-const LEGAL_BASE_URL = 'https://legal.searai.app'; // Update this after Vercel deployment
+const LEGAL_BASE_URL = 'https://legal.searai.app';
 
 export const LEGAL_URLS = {
   PRIVACY_POLICY: `${LEGAL_BASE_URL}/privacy-policy.html`,

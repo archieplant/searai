@@ -14,7 +14,6 @@ export default {
       bundleIdentifier: 'com.tcapdevs.searai',
       supportsTablet: true,
       infoPlist: {
-        // TODO: Update this URL after deploying legal docs to Vercel
         NSPrivacyPolicyURL: 'https://legal.searai.app/privacy-policy.html',
       },
     },
