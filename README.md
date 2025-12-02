@@ -1,100 +1,101 @@
 # SearAI
 
-AI-powered recipe analysis and simplification app built with React Native and Expo.
+AI-powered recipe analysis and community sharing app built with React Native and Expo.
 
-## About SearAI
+## About
 
-SearAI transforms any recipe into simplified versions tailored to your skill level and dietary preferences.
-
-## Overview
-
-SearAI transforms any recipe into simplified versions tailored to your skill level. Upload a photo or paste text, and get 5 complexity levels (from beginner to expert) with dietary preferences applied.
+SearAI transforms any recipe into simplified versions tailored to your skill level and dietary preferences. Upload a photo or paste text, and get 5 complexity levels ranging from ultra-simple home cooking to restaurant-level techniques.
 
 ## Features
 
-- **AI Recipe Analysis**: Upload photos or paste recipes for GPT-4 Vision powered analysis
-- **5 Complexity Levels**: Get recipes from Level 1 (Ultra Simple) to Level 5 (Chef)
-- **Dietary Preferences**: Automatic substitutions for allergies, dislikes, and diet types
-- **Recipe Library**: Save unlimited recipes
+### Recipe Analysis
+- **AI-Powered Analysis**: GPT-4o Vision analyzes recipe photos and text
+- **5 Complexity Levels**: From "SearAI" (ultra-simple) to "Very Complex" (chef-level)
+- **Smart Dietary Support**: Automatic substitutions for allergies, dislikes, and diet types
+- **British English**: Metric measurements and UK ingredient names throughout
+
+### Community & Discovery
+- **Recipe of the Week**: Featured community recipe based on saves
+- **Trending Recipes**: Top 8 trending recipes from the last 7 days
+- **Community Sharing**: Share your recipes with other users
+- **Save & Organize**: Unlimited recipe storage with easy access
+
+### User Experience
+- **Personal Library**: Save recipes at your preferred complexity level
 - **Recent Recipes**: Quick access to your last 5 analyzed recipes
 - **Profile Customization**: Choose from 5 avatar colors
-- **3-Day Free Trial**: Full access to all features, then £3.99/month or £39.99/year
+- **Dark Theme**: Modern dark UI optimized for readability
+
+### Subscription
+- **3-Day Free Trial**: Full access to all features
+- **After Trial**: £3.99/month or £39.99/year
+- **Unlimited Access**: No limits on recipe analysis or saving
 
 ## Tech Stack
 
 ### Frontend
-- **Framework**: React Native (New Architecture enabled)
-- **Navigation**: Expo Router with typed routes
-- **UI**: Custom dark theme with gesture handlers
-- **State Management**: React hooks + AsyncStorage
+- React Native with Expo SDK 52
+- Expo Router with typed routes
+- TypeScript for full type safety
+- New Architecture enabled
 
 ### Backend
-- **Database**: Supabase with Row Level Security (RLS)
-- **Authentication**: Supabase Auth
-- **AI**: OpenAI GPT-4o Vision (via secure Edge Function)
-- **File Storage**: Supabase Storage
-- **Subscriptions**: RevenueCat
+- Supabase (Database, Auth, Storage)
+- Supabase Edge Functions (Secure OpenAI integration)
+- Row Level Security (RLS) on all tables
+- RevenueCat (Subscription management)
+
+### AI & Analysis
+- OpenAI GPT-4o Vision API
+- Secure server-side processing via Edge Functions
+- Rate limiting (5 requests/minute per user)
+- Dietary preference integration
 
 ### Infrastructure
-- **Runtime**: Expo SDK 52
-- **Build**: EAS Build
-- **TypeScript**: Full type safety
-- **Testing**: BDD test documentation
+- Vercel (Legal documentation hosting)
+- Custom domain: https://legal.searai.app
+- SSL/HTTPS throughout
+- Automatic deployments
 
 ## Project Structure
 
 ```
 /app                           # Screens and routes (Expo Router)
-  /(tabs)                      # Tab navigation screens
-    /index.tsx                 # Home (Analyse Recipe)
+  /(tabs)                      # Tab navigation
+    /index.tsx                 # Home (Analyze Recipe)
+    /discover.tsx              # Community Discovery (Hero Layout)
     /library.tsx               # Recipe Library
     /saved.tsx                 # Saved Recipes
     /profile.tsx               # User Profile
-  /auth                        # Authentication
-    /login.tsx                 # Login screen
-    /signup.tsx                # Sign up screen
+  /auth                        # Authentication flows
   /onboarding                  # Onboarding flow
-    /index.tsx                 # Welcome
-    /how-it-works.tsx          # Feature tour
-    /personal-info.tsx         # Name/referral
-    /preferences.tsx           # Dietary preferences
-  /upload.tsx                  # Recipe upload screen
+  /upload.tsx                  # Recipe upload
   /recipe.tsx                  # Recipe detail view
   /paywall.tsx                 # Subscription paywall
   /welcome.tsx                 # Landing screen
-  /_layout.tsx                 # Root navigation with error boundary
 
 /src                           # Application code
   /components                  # Reusable UI components
-    /ErrorBoundary.tsx         # Global error handler
   /services                    # Backend services
     /supabase.ts               # Database and auth
     /backend-api.ts            # Edge Function client
     /revenuecat.ts             # Subscription management
-    /subscription.ts           # Subscription utilities
-  /constants                   # App constants
+  /constants
     /theme.ts                  # Dark theme configuration
     /legal.ts                  # Legal document URLs
 
 /supabase                      # Supabase configuration
-  /functions                   # Edge Functions
+  /functions
     /analyze-recipe            # Secure OpenAI integration
   /migrations                  # Database migrations
-    /enable_rls_policies.sql   # Row Level Security
-    /COMMUNITY_SCHEMA.sql      # Community recipes table
-    /LEGAL_CONSENTS_SCHEMA.sql # Legal consent tracking
 
-/docs                          # Legal documents
+/legal-docs                    # Legal documentation (Vercel)
   /privacy-policy.html         # GDPR/CCPA compliant
   /terms-of-service.html       # App Store compliant
   /content-policy.html         # Community guidelines
-
-/tests                         # BDD test documentation
-  /features                    # Feature specifications
-  /reference                   # Data models and user flows
+  /README.md                   # Deployment instructions
 
 /assets                        # Images and assets
-  /images                      # App icons and splash screens
 ```
 
 ## Getting Started
@@ -103,7 +104,7 @@ SearAI transforms any recipe into simplified versions tailored to your skill lev
 
 - Node.js 18+
 - npm or yarn
-- Expo Go app (for testing on device)
+- Expo Go app (for testing)
 - Supabase account
 - OpenAI API key
 - RevenueCat account
@@ -111,46 +112,41 @@ SearAI transforms any recipe into simplified versions tailored to your skill lev
 ### Installation
 
 1. **Clone the repository**
-
    ```bash
    git clone https://github.com/archieplant/searai.git
    cd searai
    ```
 
 2. **Install dependencies**
-
    ```bash
    npm install
    ```
 
 3. **Set up environment variables**
 
-   Copy `.env.example` to `.env` and fill in:
+   Copy `.env.example` to `.env`:
    ```bash
    SUPABASE_URL=your-supabase-url
    SUPABASE_ANON_KEY=your-supabase-anon-key
-   REVENUECAT_API_KEY=your-revenuecat-key
+   REVENUECAT_API_KEY=your-revenuecat-public-sdk-key
    ```
 
-   **Note**: OpenAI API key is stored in Supabase Edge Function secrets for security.
+   **Important**: Never add `OPENAI_API_KEY` to `.env`! It must be stored in Supabase Edge Function secrets. See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md).
 
 4. **Set up Supabase**
 
-   - Create tables using `supabase/migrations/*.sql`
-   - Enable Row Level Security: Run `enable_rls_policies.sql`
+   - Run database migrations: `supabase/migrations/*.sql`
    - Deploy Edge Function: `npx supabase functions deploy analyze-recipe`
-   - Add OpenAI key to Supabase secrets vault
+   - Add OpenAI key to secrets: `npx supabase secrets set OPENAI_API_KEY=your-key`
+
+   See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md) for detailed instructions.
 
 5. **Run the app**
-
    ```bash
    npx expo start
    ```
 
-   Then:
-   - Press `i` for iOS simulator
-   - Press `a` for Android emulator
-   - Scan QR code with Expo Go app
+   Then press `i` for iOS, `a` for Android, or scan QR code with Expo Go.
 
 ## Development
 
@@ -159,83 +155,90 @@ SearAI transforms any recipe into simplified versions tailored to your skill lev
 - `npm start` - Start Expo dev server
 - `npm run ios` - Open in iOS simulator
 - `npm run android` - Open in Android emulator
-- `npm run lint` - Run ESLint
 
 ### Building for Production
 
-1. **Configure EAS**
-
-   Update bundle identifiers in `app.config.js` when you have a company domain.
+1. **Configure EAS Build**
+   ```bash
+   eas build:configure
+   ```
 
 2. **Build iOS**
-
    ```bash
-   npx eas build --platform ios --profile production
+   eas build --platform ios --profile production
    ```
 
 3. **Build Android**
-
    ```bash
-   npx eas build --platform android --profile production
+   eas build --platform android --profile production
    ```
 
 ## Database Schema
 
-See [SUPABASE_SCHEMA.md](./SUPABASE_SCHEMA.md) for complete database documentation.
+### Core Tables
 
-**Key Tables:**
-- `user_profiles` - User information and preferences
-- `user_subscriptions` - RevenueCat subscription status
-- `recipe_analyses` - Rate limiting tracking (5 requests/minute)
-- `saved_recipes` - User's saved recipe collection
-- `recent_recipes` - Last 5 analyzed recipes per user
-- `dietary_preferences` - User allergies, dislikes, diet type
-- `legal_consents` - GDPR/CCPA consent tracking
+- **user_profiles** - User information and avatar colors
+- **user_subscriptions** - RevenueCat subscription status
+- **recipe_analyses** - Rate limiting tracking
+- **saved_recipes** - User's personal recipe collection
+- **recent_recipes** - Last 5 analyzed recipes
+- **dietary_preferences** - Allergies, dislikes, diet types
+- **legal_consents** - GDPR/CCPA consent tracking
 
-**Security:** All tables have Row Level Security enabled. Users can only access their own data.
+### Community Tables
+
+- **community_recipes** - Publicly shared recipes
+- **community_recipe_saves** - Track recipe saves/popularity
+
+**Security**: All tables protected by Row Level Security (RLS). Users can only access their own data.
 
 ## Architecture
 
-### Authentication Flow
-1. User signs up/logs in via Supabase Auth
-2. Profile created with default avatar color
-3. Dietary preferences initialized
-4. RevenueCat user ID linked
-5. 3-day free trial starts automatically
-
 ### Recipe Analysis Flow
-1. User uploads photo or pastes text
-2. Image converted to base64 (if provided)
-3. Request sent to `analyze-recipe` Edge Function (rate limited to 5/minute)
-4. Edge Function calls OpenAI GPT-4o with dietary preferences
-5. Response parsed into 5 complexity levels
-6. Recipe saved to recent_recipes
-7. User can analyze and save unlimited recipes
+
+1. User uploads photo or pastes recipe text
+2. Client converts image to base64 (if provided)
+3. Request sent to `analyze-recipe` Edge Function
+4. Edge Function calls OpenAI GPT-4o with user's dietary preferences
+5. AI generates 5 complexity levels with British English
+6. Response returned and saved to user's recent recipes
+7. User can save at any complexity level
+
+### Community Discovery Flow
+
+1. **Recipe of the Week**: Highest saved recipe in last 7 days
+2. **Trending Recipes**: Top 8 saved recipes (excluding Recipe of the Week)
+3. **Hero Card**: Large featured card with gradient overlay
+4. **Trending Carousel**: Horizontal scrolling with rank badges
+5. **Time-based queries**: 7-day window with all-time fallback
 
 ### Subscription Flow
+
 1. New user signs up → Automatic 3-day free trial
-2. User starts trial → RevenueCat manages trial period
+2. RevenueCat manages trial period
 3. After 3 days → Auto-converts to £3.99/month (unless cancelled)
 4. User can upgrade to annual (£39.99/year) anytime
-5. Cancellation managed through App Store/Play Store settings
+5. Cancellation via App Store/Play Store settings
 
 ## Security
 
 ### API Key Protection
-- OpenAI API key stored in Supabase Edge Function secrets
-- Never exposed to client app
-- All AI requests proxied through Edge Function
+- ✅ OpenAI API key stored in Supabase Edge Function secrets
+- ✅ Never exposed to client application
+- ✅ All AI requests proxied through secure Edge Function
+- ✅ Rate limiting (5 requests/minute per user)
 
 ### Database Security
-- Row Level Security (RLS) enabled on all tables
-- JWT-based authentication
-- Service role for backend operations only
+- ✅ Row Level Security (RLS) enabled on all tables
+- ✅ JWT-based authentication
+- ✅ Users can only access their own data
+- ✅ Service role restricted to backend operations
 
 ### Legal Compliance
-- Privacy Policy: https://archieplant.github.io/searai/privacy-policy.html
-- Terms of Service: https://archieplant.github.io/searai/terms-of-service.html
-- Content Policy: https://archieplant.github.io/searai/content-policy.html
-- GDPR, CCPA, and COPPA compliant
+- ✅ Privacy Policy: https://legal.searai.app/privacy-policy.html
+- ✅ Terms of Service: https://legal.searai.app/terms-of-service.html
+- ✅ Content Policy: https://legal.searai.app/content-policy.html
+- ✅ GDPR, CCPA, and COPPA compliant (13+ age requirement)
 
 ## Design
 
@@ -244,7 +247,8 @@ See [SUPABASE_SCHEMA.md](./SUPABASE_SCHEMA.md) for complete database documentati
 - **Background**: `#000000` (Pure Black)
 - **Surface**: `#1A1A1A` (Card background)
 - **Text**: `#FFFFFF` (White) / `#CCCCCC` (Secondary)
-- **Error**: `#FF6B6B` (Red)
+- **Border**: `#333333`
+- **Error**: `#FF6B6B`
 
 ### Avatar Colors
 - Purple: `#8B7FE8`
@@ -253,38 +257,43 @@ See [SUPABASE_SCHEMA.md](./SUPABASE_SCHEMA.md) for complete database documentati
 - Pink: `#E74C9E`
 - Blue: `#45B7D1`
 
-## Subscription Model
+### Typography
+- System font stack optimized for iOS and Android
+- British English spelling throughout
+- Clear hierarchy with size and weight
 
-- **3-Day Free Trial**: Full access to all features
-- **After Trial**: £3.99/month or £39.99/year
-- **All Features Included**: Unlimited recipe analysis and saving
-- **Cancel Anytime**: Manage subscription in App Store/Play Store
+## Production Checklist
 
-## Testing
+Before launching:
 
-BDD test documentation available in `/tests` directory:
-- Feature specifications (`.feature.md` files)
-- User flow documentation
-- Data model references
+- [ ] Update App Store screenshots
+- [ ] Submit for App Store review
+- [ ] Configure RevenueCat products in stores
+- [ ] Enable RLS policies in production database
+- [ ] Set up crash reporting (Sentry recommended)
+- [ ] Configure analytics (optional)
+- [ ] Test subscription flow end-to-end
+- [ ] Verify legal documents are accessible
+- [ ] Test community features with multiple users
+- [ ] Verify OpenAI Edge Function rate limiting
 
-## Contributing
+## Support
 
-This is a private project. For collaborators:
-1. Create feature branch from `main`
-2. Follow existing code style
-3. Update tests if applicable
-4. Submit pull request
+- **Email**: support@searai.app
+- **Privacy**: privacy@searai.app
+- **Legal**: legal@searai.app
+- **Website**: https://searai.app
+
+## About TCAPDevs
+
+**Developer**: TCAPDevs
+**Location**: 24 Swan Street, Boxford, Suffolk, CO10 5NZ, UK
+**Contact**: support@searai.app
 
 ## License
 
-Private project - All rights reserved
-
-## Contact
-
-**Support**: support@searai.app
-**Developers**: TCAPDevs
-**Location**: 24 Swan Street, Boxford, Suffolk, CO10 5NZ, UK
+Private project - All rights reserved © 2025 TCAPDevs
 
 ---
 
-Built with Claude Code 🤖
+Built with ❤️ using Claude Code
