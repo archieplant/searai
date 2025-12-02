@@ -14,7 +14,8 @@ export default {
       bundleIdentifier: 'com.tcapdevs.searai',
       supportsTablet: true,
       infoPlist: {
-        NSPrivacyPolicyURL: 'https://archieplant.github.io/searai/privacy-policy.html',
+        // TODO: Update this URL after deploying legal docs to Vercel
+        NSPrivacyPolicyURL: 'https://legal.searai.app/privacy-policy.html',
       },
     },
     android: {

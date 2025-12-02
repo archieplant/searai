@@ -3,18 +3,19 @@
  *
  * Contains URLs to hosted legal documents and version tracking.
  *
- * IMPORTANT: Update LEGAL_URLS after enabling GitHub Pages
- * Format: https://[username].github.io/[repo-name]/[file].html
+ * Legal documents are hosted on Vercel with custom domain.
+ * See /legal-docs/README.md for deployment instructions.
  */
 
-// TODO: Replace with your actual GitHub Pages URLs after enabling GitHub Pages
-const GITHUB_USERNAME = 'archieplant'; // GitHub username
-const REPO_NAME = 'searai'; // Repository name
+// TODO: After deploying to Vercel, update this base URL with your custom domain
+// Recommended: Use subdomain like https://legal.searai.app
+// Alternative: Use root domain https://searai.app
+const LEGAL_BASE_URL = 'https://legal.searai.app'; // Update this after Vercel deployment
 
 export const LEGAL_URLS = {
-  PRIVACY_POLICY: `https://${GITHUB_USERNAME}.github.io/${REPO_NAME}/privacy-policy.html`,
-  TERMS_OF_SERVICE: `https://${GITHUB_USERNAME}.github.io/${REPO_NAME}/terms-of-service.html`,
-  CONTENT_POLICY: `https://${GITHUB_USERNAME}.github.io/${REPO_NAME}/content-policy.html`,
+  PRIVACY_POLICY: `${LEGAL_BASE_URL}/privacy-policy.html`,
+  TERMS_OF_SERVICE: `${LEGAL_BASE_URL}/terms-of-service.html`,
+  CONTENT_POLICY: `${LEGAL_BASE_URL}/content-policy.html`,
 } as const;
 
 /**

@@ -140,7 +140,7 @@ IMPORTANT: Return ONLY valid JSON in this exact format (no markdown, no code blo
   "dishName": "Name of the dish",
   "versions": {
     "0": {
-      "name": "Recipe Killer",
+      "name": "SearAI",
       "time": "realistic time based on actual cooking (e.g., 5 mins for eggs, 20-30 mins for pasta)",
       "servings": "realistic servings based on photo/dish type",
       "ingredients": ["400g tin chopped tomatoes", "2 tbsp tomato passata", "250g dried pasta", "1 onion", "2 cloves garlic", "salt and pepper", "olive oil"],
@@ -193,7 +193,7 @@ CRITICAL REQUIREMENTS:
 
 3. COMPLEXITY RULES (British English ONLY) - Focus on TECHNIQUE SIMPLIFICATION, not time or ingredient limits:
 
-   - Recipe Killer (0): ULTRA-SIMPLIFIED HOME COOKING. The fastest homemade version possible.
+   - SearAI (0): ULTRA-SIMPLIFIED HOME COOKING. The fastest homemade version possible.
      * Use the fewest steps and simplest techniques
      * Acceptable shortcuts: tinned tomatoes, passata, stock cubes, pre-grated cheese, dried herbs
      * AVOID: Jar sauces, ready meals, "heat and serve" products
@@ -225,7 +225,7 @@ CRITICAL REQUIREMENTS:
 
 4. INSTRUCTIONS - Detail level MUST match complexity. NUMBER OF STEPS IS FLEXIBLE - base on what the recipe needs:
 
-   - Recipe Killer (0): Minimal steps, ultra-simple. Focus on speed and ease. Example: "Chop the onion and garlic", "Fry in olive oil for 3-4 minutes until soft", "Add tinned tomatoes and passata, season with salt and pepper", "Simmer for 10 minutes while pasta cooks", "Drain pasta and mix with sauce"
+   - SearAI (0): Minimal steps, ultra-simple. Focus on speed and ease. Example: "Chop the onion and garlic", "Fry in olive oil for 3-4 minutes until soft", "Add tinned tomatoes and passata, season with salt and pepper", "Simmer for 10 minutes while pasta cooks", "Drain pasta and mix with sauce"
 
    - Simple (1): Basic steps without detailed explanations. Assume basic knife skills. Example: "Dice the onion", "Fry in oil for 5 minutes until soft", "Add tinned tomatoes and simmer for 15 minutes", "Season to taste"
 
